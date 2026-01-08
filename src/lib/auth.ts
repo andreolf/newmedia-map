@@ -50,10 +50,4 @@ declare module "next-auth" {
   }
 }
 
-declare module "next-auth/jwt" {
-  interface JWT {
-    twitterHandle?: string;
-    twitterId?: string;
-  }
-}
 
