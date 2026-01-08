@@ -42,7 +42,7 @@ function createAvatarIcon(creator: Creator): L.DivIcon {
 }
 
 // Create cluster icon
-function createClusterIcon(cluster: L.MarkerCluster): L.DivIcon {
+function createClusterIcon(cluster: { getChildCount: () => number }): L.DivIcon {
   const count = cluster.getChildCount();
   return L.divIcon({
     html: `<div class="cluster-marker"><span>+${count}</span></div>`,
