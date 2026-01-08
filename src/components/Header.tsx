@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Compass, Users, Heart, Plus } from "lucide-react";
+import { Compass, Users, Heart, Plus, Globe, MapPin } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { useBookmarksContext } from "./BookmarksProvider";
 import { AuthButton } from "./AuthButton";
@@ -11,6 +11,8 @@ import { AuthButton } from "./AuthButton";
 export function Header() {
   const pathname = usePathname();
   const isCreatorsPage = pathname === "/creators" || pathname.startsWith("/creators/");
+  const isChaptersPage = pathname === "/chapters" || pathname.startsWith("/chapters/");
+  const isNearYouPage = pathname === "/near-you";
   const isBookmarksPage = pathname === "/bookmarks";
   const isSubmitPage = pathname === "/submit";
   const { bookmarkCount, isLoaded } = useBookmarksContext();
@@ -43,6 +45,32 @@ export function Header() {
             </Link>
 
             <Link
+              href="/chapters"
+              className={cn(
+                "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
+                isChaptersPage
+                  ? "bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-stone-100"
+                  : "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800"
+              )}
+            >
+              <Globe size={16} />
+              <span className="hidden md:inline">Chapters</span>
+            </Link>
+
+            <Link
+              href="/near-you"
+              className={cn(
+                "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
+                isNearYouPage
+                  ? "bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-stone-100"
+                  : "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800"
+              )}
+            >
+              <MapPin size={16} />
+              <span className="hidden md:inline">Near You</span>
+            </Link>
+
+            <Link
               href="/submit"
               className={cn(
                 "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
@@ -65,7 +93,7 @@ export function Header() {
               )}
             >
               <Heart size={16} />
-              <span className="hidden sm:inline">Saved</span>
+              <span className="hidden lg:inline">Saved</span>
               {isLoaded && bookmarkCount > 0 && (
                 <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
                   {bookmarkCount > 9 ? "9+" : bookmarkCount}

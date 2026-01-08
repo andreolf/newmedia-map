@@ -8,7 +8,6 @@ import { MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookmarkButton } from "./BookmarkButton";
 import { QuickShareButton } from "./QuickShareButton";
-import { useBookmarksContext } from "./BookmarksProvider";
 
 interface CreatorListItemProps {
   creator: Creator;
@@ -16,9 +15,6 @@ interface CreatorListItemProps {
 }
 
 export function CreatorListItem({ creator, isSelected = false }: CreatorListItemProps) {
-  const { isBookmarked, toggleBookmark } = useBookmarksContext();
-  const bookmarked = isBookmarked(creator.id);
-
   return (
     <Link href={`/creators/${creator.id}`} id={`creator-${creator.id}`}>
       <article 
@@ -43,11 +39,7 @@ export function CreatorListItem({ creator, isSelected = false }: CreatorListItem
                 <h3 className="font-semibold text-stone-900 dark:text-stone-100 group-hover:text-stone-700 dark:group-hover:text-stone-300 transition-colors truncate">
                   {creator.name}
                 </h3>
-                <BookmarkButton
-                  isBookmarked={bookmarked}
-                  onToggle={() => toggleBookmark(creator.id)}
-                  size="sm"
-                />
+                <BookmarkButton creatorId={creator.id} size="sm" />
                 <QuickShareButton creator={creator} size="sm" />
               </div>
               

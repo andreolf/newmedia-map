@@ -2,10 +2,10 @@
 
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useBookmarksContext } from "./BookmarksProvider";
 
 interface BookmarkButtonProps {
-  isBookmarked: boolean;
-  onToggle: () => void;
+  creatorId: string;
   size?: "sm" | "md" | "lg";
   className?: string;
 }
@@ -17,35 +17,36 @@ const sizes = {
 };
 
 export function BookmarkButton({
-  isBookmarked,
-  onToggle,
+  creatorId,
   size = "md",
   className,
 }: BookmarkButtonProps) {
+  const { isBookmarked, toggleBookmark } = useBookmarksContext();
+  const bookmarked = isBookmarked(creatorId);
+
   return (
     <button
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        onToggle();
+        toggleBookmark(creatorId);
       }}
       className={cn(
         "p-1.5 rounded-full transition-all duration-200",
-        isBookmarked
+        bookmarked
           ? "text-red-500 hover:text-red-600 bg-red-50 dark:bg-red-950/30"
           : "text-stone-400 hover:text-red-500 hover:bg-stone-100 dark:hover:bg-stone-700",
         className
       )}
-      aria-label={isBookmarked ? "Remove from saved" : "Save creator"}
+      aria-label={bookmarked ? "Remove from saved" : "Save creator"}
     >
       <Heart
         size={sizes[size]}
         className={cn(
           "transition-all duration-200",
-          isBookmarked && "fill-current"
+          bookmarked && "fill-current"
         )}
       />
     </button>
   );
 }
-

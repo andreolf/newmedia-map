@@ -1,0 +1,52 @@
+[
+  {
+    "id": "new-media-africa",
+    "name": "New Media Africa",
+    "slug": "new-media-africa",
+    "region": "Africa",
+    "description": "Spotlighting builders, educators, and documentarians across the African continent—from Lagos to Nairobi, Cairo to Cape Town.",
+    "cover_image_url": null,
+    "created_at": "2026-01-01T00:00:00Z",
+    "updated_at": "2026-01-08T00:00:00Z"
+  },
+  {
+    "id": "new-media-europe",
+    "name": "New Media Europe",
+    "slug": "new-media-europe",
+    "region": "Europe",
+    "description": "Connecting voices across European cities—Berlin, Lisbon, London, and beyond—building the next wave of crypto-native content.",
+    "cover_image_url": null,
+    "created_at": "2026-01-01T00:00:00Z",
+    "updated_at": "2026-01-08T00:00:00Z"
+  },
+  {
+    "id": "new-media-americas",
+    "name": "New Media Americas",
+    "slug": "new-media-americas",
+    "region": "Americas",
+    "description": "From São Paulo to Mexico City, Buenos Aires to Toronto—creators reshaping how the Americas engage with Web3.",
+    "cover_image_url": null,
+    "created_at": "2026-01-01T00:00:00Z",
+    "updated_at": "2026-01-08T00:00:00Z"
+  },
+  {
+    "id": "new-media-asia",
+    "name": "New Media Asia",
+    "slug": "new-media-asia",
+    "region": "Asia",
+    "description": "Bridging Tokyo, Singapore, Seoul, Mumbai, and emerging hubs—Asia's diverse creator ecosystem in one place.",
+    "cover_image_url": null,
+    "created_at": "2026-01-01T00:00:00Z",
+    "updated_at": "2026-01-08T00:00:00Z"
+  },
+  {
+    "id": "new-media-mena",
+    "name": "New Media MENA",
+    "slug": "new-media-mena",
+    "region": "MENA",
+    "description": "Middle East and North Africa voices—from Dubai to Beirut, Riyadh to Casablanca—documenting the region's crypto journey.",
+    "cover_image_url": null,
+    "created_at": "2026-01-01T00:00:00Z",
+    "updated_at": "2026-01-08T00:00:00Z"
+  }
+]
