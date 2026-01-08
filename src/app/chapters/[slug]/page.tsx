@@ -8,10 +8,15 @@ import {
   getCreatorsByChapter,
   getRegionEmoji,
 } from "@/lib/chapters";
-import { MapPin, Users, ArrowLeft, Send } from "lucide-react";
+import { Users, ArrowLeft, Send } from "lucide-react";
+
+// Allow dynamic rendering for chapter pages
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 // Generate static params for all chapters
 export function generateStaticParams() {
+  console.log("Generating static params for chapters:", chapters.map(c => c.slug));
   return chapters.map((chapter) => ({
     slug: chapter.slug,
   }));
