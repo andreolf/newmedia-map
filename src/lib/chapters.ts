@@ -1,8 +1,20 @@
 import chaptersData from "@/data/chapters.json";
 import creatorsData from "@/data/creators.json";
-import { Chapter, Creator, SurfaceReason } from "@/types";
+import { Chapter, Creator, SurfaceReason, ChapterRegion } from "@/types";
 
-export const chapters = chaptersData as Chapter[];
+// Transform JSON data to proper types
+const transformChapter = (data: typeof chaptersData[0]): Chapter => ({
+  id: data.id,
+  name: data.name,
+  slug: data.slug,
+  region: data.region as ChapterRegion,
+  description: data.description,
+  cover_image_url: data.cover_image_url ?? undefined,
+  created_at: data.created_at,
+  updated_at: data.updated_at,
+});
+
+export const chapters: Chapter[] = chaptersData.map(transformChapter);
 export const creators = creatorsData as Creator[];
 
 export function getChapterBySlug(slug: string): Chapter | undefined {
