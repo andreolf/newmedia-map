@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect, useCallback, useRef } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Header } from "@/components/Header";
@@ -136,7 +136,7 @@ function buildURLFromFilters(filters: Filters, sortBy: string, showMap: boolean)
   return queryString ? `?${queryString}` : "";
 }
 
-export default function CreatorsPage() {
+function CreatorsPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const listRef = useRef<HTMLDivElement>(null);
@@ -441,5 +441,20 @@ export default function CreatorsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function CreatorsPage() {
+  return (
+    <Suspense fallback={
+      <div className="h-screen flex flex-col bg-stone-50 dark:bg-stone-900">
+        <Header />
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-stone-400">Loading...</div>
+        </div>
+      </div>
+    }>
+      <CreatorsPageContent />
+    </Suspense>
   );
 }
