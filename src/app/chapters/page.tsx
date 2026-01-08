@@ -5,7 +5,7 @@ import { MapPin, Users, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Chapters | New Media Map",
-  description: "Regional chapters connecting emerging Web3 creators worldwide",
+  description: "Regional chapters connecting emerging Web3 creators worldwide - v2",
 };
 
 function ChapterCard({ chapter }: { chapter: (typeof chapters)[0] }) {
