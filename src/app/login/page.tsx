@@ -75,3 +75,17 @@ function LoginPageContent() {
   );
 }
 
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-stone-50 dark:bg-stone-900">
+        <Header />
+        <div className="flex items-center justify-center py-16">
+          <div className="text-stone-400">Loading...</div>
+        </div>
+      </div>
+    }>
+      <LoginPageContent />
+    </Suspense>
+  );
+}
