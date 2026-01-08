@@ -131,7 +131,7 @@ export function Header() {
               <div className="border-t border-stone-200 dark:border-stone-700 my-2" />
               
               <div className="px-3 py-2">
-                <AuthButton variant="full" />
+                <AuthButton variant="default" />
               </div>
             </nav>
           </div>
