@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Explicitly enable full static export for SSG pages
+  trailingSlash: false,
 };
 
 export default nextConfig;
