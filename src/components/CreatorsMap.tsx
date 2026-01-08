@@ -68,11 +68,9 @@ function MapBoundsHandler({ creators }: { creators: Creator[] }) {
   return null;
 }
 
-// Tile layer URLs
-// Light: CARTO Voyager (clean, modern light theme)
-// Dark: Stadia Alidade Smooth Dark (industry-standard dark blue-gray, not harsh black)
+// Tile layer URLs (both CARTO - free, no API key required)
 const LIGHT_TILES = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
-const DARK_TILES = "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png";
+const DARK_TILES = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 
 // Component to dynamically switch tile layers
 function DynamicTileLayer() {
@@ -88,9 +86,7 @@ function DynamicTileLayer() {
 
     // Add new tile layer based on theme
     const tileUrl = resolvedTheme === "dark" ? DARK_TILES : LIGHT_TILES;
-    const attribution = resolvedTheme === "dark"
-      ? '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
     tileLayerRef.current = L.tileLayer(tileUrl, {
       attribution,
     }).addTo(map);
