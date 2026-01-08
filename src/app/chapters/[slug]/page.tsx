@@ -2,13 +2,43 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { CreatorCard } from "@/components/CreatorCard";
-import {
-  chapters,
-  getChapterBySlug,
-  getCreatorsByChapter,
-  getRegionEmoji,
-} from "@/lib/chapters";
+import chaptersData from "@/data/chapters.json";
+import creatorsData from "@/data/creators.json";
+import { Chapter, Creator, ChapterRegion } from "@/types";
 import { Users, ArrowLeft, Send } from "lucide-react";
+
+// Transform chapter data directly in this file
+const chapters: Chapter[] = chaptersData.map((data) => ({
+  id: data.id,
+  name: data.name,
+  slug: data.slug,
+  region: data.region as ChapterRegion,
+  description: data.description,
+  cover_image_url: data.cover_image_url ?? undefined,
+  created_at: data.created_at,
+  updated_at: data.updated_at,
+}));
+
+const creators = creatorsData as Creator[];
+
+function getChapterBySlug(slug: string): Chapter | undefined {
+  return chapters.find((c) => c.slug === slug);
+}
+
+function getCreatorsByChapter(chapterId: string): Creator[] {
+  return creators.filter((c) => c.chapter_ids?.includes(chapterId));
+}
+
+function getRegionEmoji(region: string): string {
+  const emojis: Record<string, string> = {
+    Africa: "🌍",
+    Europe: "🌍",
+    Americas: "🌎",
+    Asia: "🌏",
+    MENA: "🌍",
+  };
+  return emojis[region] || "🌐";
+}
 
 // Static generation - create pages at build time
 export const dynamicParams = false; // Only allow paths from generateStaticParams
