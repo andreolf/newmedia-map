@@ -10,13 +10,10 @@ import {
 } from "@/lib/chapters";
 import { Users, ArrowLeft, Send } from "lucide-react";
 
-// Allow dynamic rendering for chapter pages
-export const dynamic = "force-dynamic";
-export const dynamicParams = true;
+// Static generation - create pages at build time
+export const dynamicParams = false; // Only allow paths from generateStaticParams
 
-// Generate static params for all chapters
 export function generateStaticParams() {
-  console.log("Generating static params for chapters:", chapters.map(c => c.slug));
   return chapters.map((chapter) => ({
     slug: chapter.slug,
   }));
