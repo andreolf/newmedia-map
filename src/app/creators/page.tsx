@@ -141,9 +141,25 @@ function CreatorsPageContent() {
   const searchParams = useSearchParams();
   const listRef = useRef<HTMLDivElement>(null);
 
-  // Initialize state from URL
+  // Check if mobile on initial load
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Initialize state from URL - default hide map on mobile
   const [filters, setFilters] = useState<Filters>(() => parseFiltersFromURL(searchParams));
-  const [showMap, setShowMap] = useState(() => searchParams.get("map") !== "false");
+  const [showMap, setShowMap] = useState(() => {
+    const mapParam = searchParams.get("map");
+    if (mapParam === "true") return true;
+    if (mapParam === "false") return false;
+    // Default: show on desktop, hide on mobile
+    return typeof window !== "undefined" ? window.innerWidth >= 768 : true;
+  });
   const [sortBy, setSortBy] = useState<"recent" | "az">(() =>
     (searchParams.get("sort") as "recent" | "az") || "recent"
   );
@@ -387,7 +403,7 @@ function CreatorsPageContent() {
         {/* Creator List */}
         <div
           ref={listRef}
-          className={`flex flex-col bg-white dark:bg-stone-800 border-r border-stone-200 dark:border-stone-700 ${showMap ? "w-1/2 lg:w-2/5" : "w-full"}`}
+          className={`flex flex-col bg-white dark:bg-stone-800 ${showMap && !isMobile ? "w-1/2 lg:w-2/5 border-r border-stone-200 dark:border-stone-700" : "w-full"}`}
         >
           {/* Results Header */}
           <div className="flex items-center justify-between px-4 py-2 border-b border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-900">
@@ -433,8 +449,8 @@ function CreatorsPageContent() {
           </div>
         </div>
 
-        {/* Map Panel */}
-        {showMap && (
+        {/* Map Panel - hidden on mobile */}
+        {showMap && !isMobile && (
           <div className="flex-1 relative">
             <CreatorsMap creators={filteredCreators} />
           </div>
