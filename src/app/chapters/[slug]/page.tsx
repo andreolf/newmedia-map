@@ -41,7 +41,7 @@ function getRegionEmoji(region: string): string {
 }
 
 // Static generation - create pages at build time
-export const dynamicParams = false; // Only allow paths from generateStaticParams
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return chapters.map((chapter) => ({
@@ -72,41 +72,47 @@ export default async function ChapterPage({ params }: { params: Promise<{ slug: 
   const emoji = getRegionEmoji(chapter.region);
 
   return (
-    <div className="min-h-screen bg-stone-50 dark:bg-stone-900">
+    <div className="min-h-screen bg-[--background] relative">
+      {/* Grain overlay */}
+      <div className="grain" />
+      
+      {/* Background mesh */}
+      <div className="fixed inset-0 mesh-gradient pointer-events-none" />
+      
       <Header />
 
-      <main>
+      <main className="relative">
         {/* Hero */}
-        <div className="bg-gradient-to-br from-stone-100 to-stone-200 dark:from-stone-800 dark:to-stone-900 border-b border-stone-200 dark:border-stone-700">
+        <div className="bg-gradient-to-br from-[--muted] to-[--card] border-b border-[--border]">
           <div className="max-w-6xl mx-auto px-4 py-12">
             <Link
               href="/chapters"
-              className="inline-flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 mb-6"
+              className="inline-flex items-center gap-2 text-sm text-[--muted-foreground] hover:text-[#00ff88] mb-6 transition-colors"
             >
               <ArrowLeft size={16} />
               All chapters
             </Link>
 
-            <div className="flex items-start gap-6">
-              <div className="w-20 h-20 bg-white dark:bg-stone-700 rounded-2xl flex items-center justify-center shadow-sm">
+            <div className="flex flex-col sm:flex-row items-start gap-6">
+              <div className="w-20 h-20 bg-[--card] rounded-2xl flex items-center justify-center border border-[--border]">
                 <span className="text-4xl">{emoji}</span>
               </div>
 
               <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-100">
+                <div className="flex flex-wrap items-center gap-3 mb-2">
+                  <h1 className="font-display text-3xl font-bold text-[--foreground]">
                     {chapter.name}
                   </h1>
-                  <span className="px-2.5 py-1 bg-stone-200 dark:bg-stone-700 rounded-full text-sm font-medium text-stone-600 dark:text-stone-300">
+                  <span className="px-2.5 py-1 bg-[--muted] border border-[--border] rounded-full text-sm font-medium text-[--muted-foreground]">
                     {chapter.region}
                   </span>
                 </div>
-                <p className="text-lg text-stone-600 dark:text-stone-400 max-w-2xl">
+                <p className="text-lg text-[--muted-foreground] max-w-2xl">
                   {chapter.description}
                 </p>
 
                 <div className="flex items-center gap-6 mt-4">
-                  <div className="flex items-center gap-2 text-stone-500 dark:text-stone-400">
+                  <div className="flex items-center gap-2 text-[--muted-foreground]">
                     <Users size={18} />
                     <span>
                       {chapterCreators.length} featured creator
@@ -122,12 +128,12 @@ export default async function ChapterPage({ params }: { params: Promise<{ slug: 
         {/* Featured Creators */}
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-stone-900 dark:text-stone-100">
-              Featured Creators
+            <h2 className="font-display text-xl font-bold text-[--foreground]">
+              Featured <span className="text-[#00ff88]">Creators</span>
             </h2>
             <Link
               href={`/creators?chapter=${chapter.id}`}
-              className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              className="text-sm font-medium text-[#00ff88] hover:underline underline-offset-4"
             >
               View all →
             </Link>
@@ -144,13 +150,13 @@ export default async function ChapterPage({ params }: { params: Promise<{ slug: 
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-white dark:bg-stone-800 rounded-xl border border-stone-200 dark:border-stone-700">
-              <p className="text-stone-500 dark:text-stone-400 mb-4">
+            <div className="text-center py-12 gradient-border">
+              <p className="text-[--muted-foreground] mb-4">
                 No creators featured in this chapter yet.
               </p>
               <Link
                 href="/submit"
-                className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline"
+                className="inline-flex items-center gap-2 text-[#00ff88] hover:underline underline-offset-4"
               >
                 Submit a creator
               </Link>
@@ -160,33 +166,37 @@ export default async function ChapterPage({ params }: { params: Promise<{ slug: 
 
         {/* Submit CTA */}
         <div className="max-w-6xl mx-auto px-4 pb-12">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-xl border border-blue-100 dark:border-blue-900 p-8 text-center">
-            <h3 className="text-xl font-semibold text-stone-900 dark:text-stone-100 mb-2">
-              Know someone who should be featured?
-            </h3>
-            <p className="text-stone-600 dark:text-stone-400 mb-4">
-              Submit a creator to {chapter.name}. We prioritize signal over
-              clout.
-            </p>
-            <Link
-              href={`/submit?chapter=${chapter.id}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-            >
-              <Send size={16} />
-              Submit to this chapter
-            </Link>
+          <div className="relative overflow-hidden gradient-border p-8 text-center">
+            {/* Background glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#6366f1] rounded-full blur-[100px] opacity-20" />
+            
+            <div className="relative">
+              <h3 className="font-display text-xl font-bold text-[--foreground] mb-2">
+                Know someone who should be featured?
+              </h3>
+              <p className="text-[--muted-foreground] mb-4">
+                Submit a creator to {chapter.name}. We prioritize signal over clout.
+              </p>
+              <Link
+                href={`/submit?chapter=${chapter.id}`}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#6366f1] text-white rounded-lg font-semibold hover:bg-[#5558e3] transition-colors"
+              >
+                <Send size={16} />
+                Submit to this chapter
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Curators Section */}
         <div className="max-w-6xl mx-auto px-4 pb-12">
-          <div className="bg-stone-100 dark:bg-stone-800/50 rounded-xl p-6">
-            <p className="text-sm text-stone-500 dark:text-stone-400 text-center">
-              <span className="font-medium">Curated by {chapter.name} Chapter</span>
+          <div className="bg-[--muted] rounded-xl p-6 border border-[--border]">
+            <p className="text-sm text-[--muted-foreground] text-center">
+              <span className="font-medium text-[--foreground]">Curated by {chapter.name} Chapter</span>
               <span className="mx-2">·</span>
               <Link
                 href="/submit"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-[#00ff88] hover:underline underline-offset-4"
               >
                 Apply to curate
               </Link>

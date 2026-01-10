@@ -19,10 +19,10 @@ export function CreatorListItem({ creator, isSelected = false }: CreatorListItem
     <Link href={`/creators/${creator.id}`} id={`creator-${creator.id}`}>
       <article 
         className={cn(
-          "group flex items-start gap-4 p-4 border-b border-stone-200 dark:border-stone-700 transition-colors cursor-pointer",
+          "group flex items-start gap-4 p-4 border-b border-[--border] transition-all cursor-pointer",
           isSelected 
-            ? "bg-blue-50 dark:bg-blue-950/30 ring-2 ring-blue-500 ring-inset"
-            : "bg-white dark:bg-stone-800 hover:bg-stone-50 dark:hover:bg-stone-750"
+            ? "bg-[#00ff88]/10 ring-2 ring-[#00ff88] ring-inset"
+            : "bg-[--card] hover:bg-[--muted]"
         )}
       >
         <Avatar
@@ -36,14 +36,14 @@ export function CreatorListItem({ creator, isSelected = false }: CreatorListItem
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1">
-                <h3 className="font-semibold text-stone-900 dark:text-stone-100 group-hover:text-stone-700 dark:group-hover:text-stone-300 transition-colors truncate">
+                <h3 className="font-semibold text-[--foreground] group-hover:text-[#00ff88] transition-colors truncate">
                   {creator.name}
                 </h3>
                 <BookmarkButton creatorId={creator.id} size="sm" />
                 <QuickShareButton creator={creator} size="sm" />
               </div>
               
-              <div className="flex items-center gap-1 text-stone-400 dark:text-stone-500 text-sm mt-0.5">
+              <div className="flex items-center gap-1 text-[--muted-foreground] text-sm mt-0.5">
                 <MapPin size={12} />
                 <span className="truncate">
                   {creator.city ? `${creator.city}, ` : ""}
@@ -59,7 +59,7 @@ export function CreatorListItem({ creator, isSelected = false }: CreatorListItem
             </div>
           </div>
           
-          <p className="text-stone-500 dark:text-stone-400 text-sm mt-1.5 line-clamp-1">
+          <p className="text-[--muted-foreground] text-sm mt-1.5 line-clamp-1">
             {creator.editorial_reason}
           </p>
         </div>

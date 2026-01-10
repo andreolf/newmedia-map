@@ -1,19 +1,19 @@
 export const signalColorMap: Record<string, string> = {
-  wallets: "#3B82F6",      // blue
-  aa: "#8B5CF6",           // violet
-  zk: "#10B981",           // emerald
-  infra: "#F59E0B",        // amber
-  ux: "#EC4899",           // pink
-  education: "#06B6D4",    // cyan
-  research: "#6366F1",     // indigo
-  defi: "#22C55E",         // green
-  security: "#EF4444",     // red
-  privacy: "#A855F7",      // purple
-  dao: "#F97316",          // orange
-  nft: "#14B8A6",          // teal
-  gaming: "#D946EF",       // fuchsia
-  social: "#0EA5E9",       // sky
-  identity: "#84CC16",     // lime
+  wallets: "#00ff88",      // neon green
+  aa: "#a855f7",           // violet
+  zk: "#00d4ff",           // cyan
+  infra: "#ffaa00",        // amber
+  ux: "#ff3366",           // pink/coral
+  education: "#00d4ff",    // cyan
+  research: "#6366f1",     // indigo
+  defi: "#00ff88",         // neon green
+  security: "#ff4444",     // red
+  privacy: "#a855f7",      // purple
+  dao: "#ff8800",          // orange
+  nft: "#00d4ff",          // teal
+  gaming: "#ff00ff",       // magenta
+  social: "#00aaff",       // sky
+  identity: "#aaff00",     // lime
 };
 
 export const trajectoryLabels: Record<string, string> = {
@@ -76,4 +76,3 @@ export const allCountries = [
   "South Korea",
   "Vietnam",
 ];
-

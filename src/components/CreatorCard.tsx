@@ -35,7 +35,7 @@ export function CreatorCard({
   if (compact) {
     return (
       <Link href={`/creators/${creator.id}`}>
-        <article className="group flex items-start gap-4 p-4 hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors cursor-pointer">
+        <article className="group flex items-start gap-4 p-4 hover:bg-[--card] rounded-xl transition-all cursor-pointer border border-transparent hover:border-[--border]">
           <Avatar
             name={creator.name}
             avatarUrl={creator.avatar_url}
@@ -47,13 +47,13 @@ export function CreatorCard({
             <div className="flex items-start justify-between gap-2">
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-semibold text-stone-900 dark:text-stone-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="font-semibold text-[--foreground] group-hover:text-[#00ff88] transition-colors">
                     {creator.name}
                   </h3>
                   <BookmarkButton creatorId={creator.id} size="sm" />
                 </div>
-                <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mt-0.5">
-                  <span className="font-medium text-stone-700 dark:text-stone-300">
+                <div className="flex items-center gap-2 text-sm text-[--muted-foreground] mt-0.5">
+                  <span className="font-medium text-[#00ff88]">
                     {creator.primary_signal}
                   </span>
                   <span>•</span>
@@ -73,13 +73,13 @@ export function CreatorCard({
               </div>
             </div>
 
-            <p className="text-sm text-stone-600 dark:text-stone-400 mt-2 line-clamp-2">
+            <p className="text-sm text-[--muted-foreground] mt-2 line-clamp-2">
               {creator.editorial_reason}
             </p>
 
             {/* Why surfaced */}
             {surfaceReason && (
-              <div className="flex items-center gap-1.5 mt-2 text-xs text-blue-600 dark:text-blue-400">
+              <div className="flex items-center gap-1.5 mt-2 text-xs text-[#6366f1]">
                 <Sparkles size={12} />
                 <span>{formatSurfaceReason(surfaceReason)}</span>
               </div>
@@ -97,7 +97,7 @@ export function CreatorCard({
   // Grid card view
   return (
     <Link href={`/creators/${creator.id}`}>
-      <article className="group bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-xl p-5 hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-sm transition-all cursor-pointer h-full">
+      <article className="group gradient-border p-5 hover:scale-[1.02] transition-all cursor-pointer h-full">
         <div className="flex gap-4">
           <Avatar
             name={creator.name}
@@ -108,13 +108,13 @@ export function CreatorCard({
 
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between">
-              <h3 className="font-semibold text-stone-900 dark:text-stone-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="font-semibold text-[--foreground] group-hover:text-[#00ff88] transition-colors">
                 {creator.name}
               </h3>
               <BookmarkButton creatorId={creator.id} size="sm" />
             </div>
 
-            <div className="flex items-center gap-1 text-stone-400 dark:text-stone-500 text-sm mt-0.5">
+            <div className="flex items-center gap-1 text-[--muted-foreground] text-sm mt-0.5">
               <MapPin size={12} />
               <span>
                 {creator.city ? `${creator.city}, ` : ""}
@@ -122,13 +122,13 @@ export function CreatorCard({
               </span>
             </div>
 
-            <p className="text-stone-600 dark:text-stone-400 text-sm mt-2 line-clamp-2">
+            <p className="text-[--muted-foreground] text-sm mt-2 line-clamp-2">
               {creator.editorial_reason}
             </p>
 
             {/* Why surfaced */}
             {surfaceReason && (
-              <div className="flex items-center gap-1.5 mt-2 text-xs text-blue-600 dark:text-blue-400">
+              <div className="flex items-center gap-1.5 mt-2 text-xs text-[#6366f1]">
                 <Sparkles size={12} />
                 <span>{formatSurfaceReason(surfaceReason)}</span>
               </div>
@@ -140,7 +140,7 @@ export function CreatorCard({
               ))}
             </div>
 
-            <div className="mt-3 pt-3 border-t border-stone-100 dark:border-stone-700">
+            <div className="mt-3 pt-3 border-t border-[--border]">
               <ArtifactIconRow artifacts={creator.artifacts} size="sm" />
             </div>
           </div>

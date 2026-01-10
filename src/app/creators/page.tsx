@@ -18,8 +18,8 @@ const CreatorsMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center">
-        <div className="text-stone-400">Loading map...</div>
+      <div className="w-full h-full bg-[--muted] flex items-center justify-center">
+        <div className="text-[--muted-foreground]">Loading map...</div>
       </div>
     ),
   }
@@ -59,14 +59,14 @@ function TrajectoryDropdown({ value, onChange }: { value: string; onChange: (val
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-3 py-1.5 text-sm border border-stone-200 dark:border-stone-600 rounded-lg bg-white dark:bg-stone-700 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-between"
+        className="w-full px-3 py-1.5 text-sm border border-[--border] rounded-lg bg-[--card] text-[--foreground] focus:outline-none focus:ring-2 focus:ring-[#00ff88] flex items-center justify-between"
       >
         <span>{selectedOption.label}</span>
         <ChevronDown size={14} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute z-50 mt-1 w-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-600 rounded-lg shadow-lg overflow-hidden">
+        <div className="absolute z-50 mt-1 w-full bg-[--card] border border-[--border] rounded-lg shadow-lg overflow-hidden">
           {trajectoryOptions.map((option) => (
             <button
               key={option.value}
@@ -75,9 +75,9 @@ function TrajectoryDropdown({ value, onChange }: { value: string; onChange: (val
                 onChange(option.value);
                 setIsOpen(false);
               }}
-              className={`w-full px-3 py-2 text-sm text-left hover:bg-stone-100 dark:hover:bg-stone-700 transition-colors ${option.value === value
-                  ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
-                  : "text-stone-900 dark:text-stone-100"
+              className={`w-full px-3 py-2 text-sm text-left hover:bg-[--muted] transition-colors ${option.value === value
+                  ? "bg-[#00ff88]/10 text-[#00ff88]"
+                  : "text-[--foreground]"
                 }`}
             >
               {option.label}
@@ -266,20 +266,23 @@ function CreatorsPageContent() {
     filters.search.length > 0;
 
   return (
-    <div className="h-screen flex flex-col bg-stone-50 dark:bg-stone-900">
+    <div className="h-screen flex flex-col bg-[--background] relative">
+      {/* Grain overlay */}
+      <div className="grain" />
+      
       <Header />
 
       {/* Top Filter Bar */}
-      <div className="bg-white dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 px-4 py-3">
+      <div className="relative bg-[--card] border-b border-[--border] px-4 py-3">
         {/* Title Row */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
-            <h1 className="text-lg font-semibold text-stone-900 dark:text-stone-100">
-              Web3 Creators & Contributors
+            <h1 className="font-display text-lg font-bold text-[--foreground]">
+              Web3 Creators
             </h1>
-            <span className="hidden sm:inline-flex items-center gap-1 text-xs text-stone-400 dark:text-stone-500">
-              <kbd className="px-1.5 py-0.5 bg-stone-100 dark:bg-stone-700 rounded text-[10px] font-mono">j</kbd>
-              <kbd className="px-1.5 py-0.5 bg-stone-100 dark:bg-stone-700 rounded text-[10px] font-mono">k</kbd>
+            <span className="hidden sm:inline-flex items-center gap-1 text-xs text-[--muted-foreground]">
+              <kbd className="px-1.5 py-0.5 bg-[--muted] rounded text-[10px] font-mono">j</kbd>
+              <kbd className="px-1.5 py-0.5 bg-[--muted] rounded text-[10px] font-mono">k</kbd>
               to navigate
             </span>
           </div>
@@ -288,7 +291,7 @@ function CreatorsPageContent() {
             {/* Map Toggle */}
             <button
               onClick={() => setShowMap(!showMap)}
-              className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+              className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${showMap ? "bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/30" : "text-[--muted-foreground] hover:text-[--foreground]"}`}
             >
               {showMap ? (
                 <>
@@ -319,10 +322,10 @@ function CreatorsPageContent() {
 
           <button
             onClick={() => setShowMoreFilters(!showMoreFilters)}
-            className="flex items-center gap-1 px-4 py-2 ml-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex-shrink-0"
+            className={`flex items-center gap-1 px-4 py-2 ml-2 rounded-lg text-sm font-medium transition-colors flex-shrink-0 ${showMoreFilters ? "bg-[#6366f1] text-white" : "bg-[--muted] text-[--muted-foreground] hover:text-[--foreground]"}`}
           >
             <Filter size={16} />
-            More Filters
+            More
           </button>
         </div>
 
@@ -333,8 +336,8 @@ function CreatorsPageContent() {
               key={country}
               onClick={() => toggleCountry(country)}
               className={`px-3 py-1 rounded-full text-sm font-medium transition-colors flex-shrink-0 ${filters.countries.includes(country)
-                  ? "bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900"
-                  : "bg-stone-100 dark:bg-stone-700 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-600"
+                  ? "bg-[#00ff88] text-[#0a0a0f]"
+                  : "bg-[--muted] text-[--muted-foreground] hover:text-[--foreground] border border-[--border]"
                 }`}
             >
               {country}
@@ -344,25 +347,25 @@ function CreatorsPageContent() {
 
         {/* More Filters Panel */}
         {showMoreFilters && (
-          <div className="mt-3 pt-3 border-t border-stone-200 dark:border-stone-700 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mt-3 pt-3 border-t border-[--border] grid grid-cols-2 md:grid-cols-4 gap-4">
             {/* Search */}
             <div className="col-span-2 md:col-span-1">
-              <label className="text-xs font-medium text-stone-500 dark:text-stone-400 mb-1 block">Search</label>
+              <label className="text-xs font-medium text-[--muted-foreground] mb-1 block">Search</label>
               <div className="relative">
-                <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-stone-400" />
+                <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[--muted-foreground]" />
                 <input
                   type="text"
                   placeholder="Name, signal..."
                   value={filters.search}
                   onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                  className="w-full pl-8 pr-3 py-1.5 text-sm border border-stone-200 dark:border-stone-600 rounded-lg bg-white dark:bg-stone-700 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-8 pr-3 py-1.5 text-sm border border-[--border] rounded-lg bg-[--background] text-[--foreground] focus:outline-none focus:ring-2 focus:ring-[#00ff88] placeholder:text-[--muted-foreground]"
                 />
               </div>
             </div>
 
             {/* Trajectory */}
             <div>
-              <label className="text-xs font-medium text-stone-500 dark:text-stone-400 mb-1 block">Trajectory</label>
+              <label className="text-xs font-medium text-[--muted-foreground] mb-1 block">Trajectory</label>
               <TrajectoryDropdown
                 value={filters.trajectories[0] || ""}
                 onChange={(value) => setFilters({ ...filters, trajectories: value ? [value] : [] })}
@@ -376,9 +379,9 @@ function CreatorsPageContent() {
                   type="checkbox"
                   checked={filters.noConferenceCircuit}
                   onChange={(e) => setFilters({ ...filters, noConferenceCircuit: e.target.checked })}
-                  className="w-4 h-4 rounded border-stone-300 text-blue-600 focus:ring-blue-500"
+                  className="w-4 h-4 rounded border-[--border] bg-[--background] text-[#00ff88] focus:ring-[#00ff88]"
                 />
-                <span className="text-sm text-stone-600 dark:text-stone-400">No conference circuit</span>
+                <span className="text-sm text-[--muted-foreground]">No conference circuit</span>
               </label>
             </div>
 
@@ -387,7 +390,7 @@ function CreatorsPageContent() {
               <div className="flex items-end">
                 <button
                   onClick={clearFilters}
-                  className="flex items-center gap-1 text-sm text-stone-500 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200"
+                  className="flex items-center gap-1 text-sm text-[--muted-foreground] hover:text-[#ff3366]"
                 >
                   <X size={14} />
                   Clear all
@@ -399,18 +402,18 @@ function CreatorsPageContent() {
       </div>
 
       {/* Main Content: List + Map */}
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden relative">
         {/* Creator List */}
         <div
           ref={listRef}
-          className={`flex flex-col bg-white dark:bg-stone-800 ${showMap && !isMobile ? "w-1/2 lg:w-2/5 border-r border-stone-200 dark:border-stone-700" : "w-full"}`}
+          className={`flex flex-col bg-[--card] ${showMap && !isMobile ? "w-1/2 lg:w-2/5 border-r border-[--border]" : "w-full"}`}
         >
           {/* Results Header */}
-          <div className="flex items-center justify-between px-4 py-2 border-b border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-900">
-            <span className="text-sm text-stone-600 dark:text-stone-400">
+          <div className="flex items-center justify-between px-4 py-2 border-b border-[--border] bg-[--muted]">
+            <span className="text-sm text-[--muted-foreground]">
               {filteredCreators.length} creator{filteredCreators.length !== 1 ? "s" : ""}
               {selectedIndex >= 0 && (
-                <span className="ml-2 text-blue-600">
+                <span className="ml-2 text-[#00ff88]">
                   ({selectedIndex + 1} of {filteredCreators.length})
                 </span>
               )}
@@ -418,7 +421,7 @@ function CreatorsPageContent() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as "recent" | "az")}
-              className="text-sm border-0 bg-transparent text-stone-600 dark:text-stone-400 focus:ring-0 cursor-pointer"
+              className="text-sm border-0 bg-transparent text-[--muted-foreground] focus:ring-0 cursor-pointer"
             >
               <option value="recent">Recently added</option>
               <option value="az">A–Z</option>
@@ -436,11 +439,11 @@ function CreatorsPageContent() {
                 />
               ))
             ) : (
-              <div className="flex flex-col items-center justify-center h-full text-stone-500 dark:text-stone-400">
+              <div className="flex flex-col items-center justify-center h-full text-[--muted-foreground]">
                 <p>No creators match your filters.</p>
                 <button
                   onClick={clearFilters}
-                  className="mt-2 text-sm text-blue-600 hover:underline"
+                  className="mt-2 text-sm text-[#00ff88] hover:underline underline-offset-4"
                 >
                   Clear all filters
                 </button>
@@ -463,10 +466,10 @@ function CreatorsPageContent() {
 export default function CreatorsPage() {
   return (
     <Suspense fallback={
-      <div className="h-screen flex flex-col bg-stone-50 dark:bg-stone-900">
+      <div className="h-screen flex flex-col bg-[--background]">
         <Header />
         <div className="flex-1 flex items-center justify-center">
-          <div className="text-stone-400">Loading...</div>
+          <div className="text-[--muted-foreground]">Loading...</div>
         </div>
       </div>
     }>

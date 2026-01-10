@@ -29,9 +29,10 @@ export function Avatar({ name, avatarUrl, primarySignal, size = "md" }: AvatarPr
         height: config.container,
         padding: config.ring,
         background: `linear-gradient(135deg, ${ringColor}, ${ringColor}80)`,
+        boxShadow: `0 0 20px ${ringColor}30`,
       }}
     >
-      <div className="w-full h-full rounded-full overflow-hidden bg-stone-200 flex items-center justify-center">
+      <div className="w-full h-full rounded-full overflow-hidden bg-[--muted] flex items-center justify-center">
         {avatarUrl ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
@@ -40,7 +41,7 @@ export function Avatar({ name, avatarUrl, primarySignal, size = "md" }: AvatarPr
             className="w-full h-full object-cover"
           />
         ) : (
-          <span className={cn("font-semibold text-stone-500", config.text)}>
+          <span className={cn("font-bold text-[--muted-foreground]", config.text)}>
             {initials}
           </span>
         )}

@@ -34,8 +34,8 @@ export function BookmarkButton({
       className={cn(
         "p-1.5 rounded-full transition-all duration-200",
         bookmarked
-          ? "text-red-500 hover:text-red-600 bg-red-50 dark:bg-red-950/30"
-          : "text-stone-400 hover:text-red-500 hover:bg-stone-100 dark:hover:bg-stone-700",
+          ? "text-[#ff3366] bg-[#ff3366]/20"
+          : "text-[--muted-foreground] hover:text-[#ff3366] hover:bg-[--muted]",
         className
       )}
       aria-label={bookmarked ? "Remove from saved" : "Save creator"}

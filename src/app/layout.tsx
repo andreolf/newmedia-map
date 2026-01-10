@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { DM_Sans, Newsreader } from "next/font/google";
+import { Space_Grotesk, Syne } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { BookmarksProvider } from "@/components/BookmarksProvider";
 import { SessionProvider } from "@/components/SessionProvider";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
-const newsreader = Newsreader({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-newsreader",
+  variable: "--font-syne",
   display: "swap",
 });
 
@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${newsreader.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${spaceGrotesk.variable} ${syne.variable} dark`} suppressHydrationWarning>
       <body className="min-h-screen antialiased">
         <SessionProvider>
           <ThemeProvider>

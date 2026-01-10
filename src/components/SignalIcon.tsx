@@ -79,18 +79,17 @@ export function SignalIcon({ signal, selected = false, onClick, size = "md" }: S
       className={cn(
         "flex flex-col items-center justify-center rounded-xl transition-all flex-shrink-0",
         sizeClasses,
-        !selected && "hover:bg-stone-100 dark:hover:bg-stone-700"
+        !selected && "hover:bg-[--muted] text-[--muted-foreground]"
       )}
       style={{
         backgroundColor: selected ? `${color}20` : undefined,
         color: selected ? color : undefined,
-        boxShadow: selected ? `0 0 0 2px ${color}` : undefined,
+        boxShadow: selected ? `0 0 0 2px ${color}, 0 0 20px ${color}30` : undefined,
       }}
       title={label}
     >
-      <Icon size={iconSize} className={!selected ? "text-stone-500 dark:text-stone-400" : undefined} />
-      <span className={cn("mt-0.5 font-medium", !selected && "text-stone-600 dark:text-stone-400")}>{label}</span>
+      <Icon size={iconSize} />
+      <span className="mt-0.5 font-medium">{label}</span>
     </button>
   );
 }
-
