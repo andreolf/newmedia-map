@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Radio, Users, Heart, Plus, Globe, MapPin, Menu, X, Calendar, Building2 } from "lucide-react";
 import { useBookmarksContext } from "./BookmarksProvider";
 import { AuthButton } from "./AuthButton";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
@@ -79,6 +80,7 @@ export function Header() {
             
             <div className="border-l border-[--border] h-6 mx-3" />
             
+            <ThemeToggle />
             <AuthButton variant="compact" />
           </nav>
 

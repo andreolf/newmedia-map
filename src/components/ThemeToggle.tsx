@@ -26,7 +26,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={cycleTheme}
-      className="p-2 rounded-lg text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+      className="p-2 rounded-lg text-[--muted-foreground] hover:text-[--foreground] hover:bg-[--card] transition-colors"
       title={`Theme: ${theme}`}
     >
       {theme === "system" ? (
