@@ -185,13 +185,12 @@ export default function CompaniesPage() {
                 >
                   <div className="flex items-start justify-between mb-3">
                     <span
-                      className={`text-xs font-bold uppercase tracking-wide px-2 py-1 rounded ${
-                        event.event_type === "conference"
+                      className={`text-xs font-bold uppercase tracking-wide px-2 py-1 rounded ${event.event_type === "conference"
                           ? "bg-[#6366f1]/10 text-[#6366f1]"
                           : event.event_type === "workshop"
                             ? "bg-[#00ff88]/10 text-[#00ff88]"
                             : "bg-[--muted] text-[--muted-foreground]"
-                      }`}
+                        }`}
                     >
                       {EVENT_TYPE_LABELS[event.event_type]}
                     </span>
@@ -433,18 +432,30 @@ export default function CompaniesPage() {
                 <p className="text-xs text-[--muted-foreground] mb-3">
                   Select categories based on what creators do, not their follower count
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {(Object.keys(CATEGORY_DESCRIPTIONS) as CreatorCategory[]).map((cat) => (
                     <button
                       key={cat}
                       type="button"
                       onClick={() => toggleCategory(cat)}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${formData.categoryFocus.includes(cat)
-                          ? "bg-[#00ff88] text-black"
-                          : "bg-[--muted] text-[--muted-foreground] hover:text-[--foreground]"
-                        }`}
+                      className={`group relative flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-xl transition-all cursor-pointer ${
+                        formData.categoryFocus.includes(cat)
+                          ? "bg-[#00ff88] text-black border-2 border-[#00ff88] shadow-[0_0_12px_rgba(0,255,136,0.3)]"
+                          : "bg-[--card] text-[--foreground] border-2 border-[--border] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/5"
+                      }`}
                       title={CATEGORY_DESCRIPTIONS[cat]}
                     >
+                      <span className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${
+                        formData.categoryFocus.includes(cat)
+                          ? "bg-black/20 border-black/30"
+                          : "border-[--border] group-hover:border-[#00ff88]/50"
+                      }`}>
+                        {formData.categoryFocus.includes(cat) && (
+                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </span>
                       {cat}
                     </button>
                   ))}
@@ -460,17 +471,29 @@ export default function CompaniesPage() {
                 <p className="text-xs text-[--muted-foreground] mb-3">
                   Select what you&apos;re looking for from creators
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {INTENT_OPTIONS.map((intent) => (
                     <button
                       key={intent.value}
                       type="button"
                       onClick={() => toggleIntent(intent.value)}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${formData.intentFocus.includes(intent.value)
-                          ? "bg-[#6366f1] text-white"
-                          : "bg-[--muted] text-[--muted-foreground] hover:text-[--foreground]"
-                        }`}
+                      className={`group relative flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-xl transition-all cursor-pointer ${
+                        formData.intentFocus.includes(intent.value)
+                          ? "bg-[#6366f1] text-white border-2 border-[#6366f1] shadow-[0_0_12px_rgba(99,102,241,0.3)]"
+                          : "bg-[--card] text-[--foreground] border-2 border-[--border] hover:border-[#6366f1]/50 hover:bg-[#6366f1]/5"
+                      }`}
                     >
+                      <span className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${
+                        formData.intentFocus.includes(intent.value)
+                          ? "bg-white/20 border-white/30"
+                          : "border-[--border] group-hover:border-[#6366f1]/50"
+                      }`}>
+                        {formData.intentFocus.includes(intent.value) && (
+                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </span>
                       {intent.label}
                     </button>
                   ))}

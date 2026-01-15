@@ -10,23 +10,57 @@
     "location_visibility": "CITY",
     "collab_radius_km": 50,
     "primary_signal": "wallets",
-    "signals": ["wallets", "ux", "education"],
-    "content_formats": ["video", "threads"],
+    "signals": [
+      "wallets",
+      "ux",
+      "education"
+    ],
+    "content_formats": [
+      "video",
+      "threads"
+    ],
     "trajectory": "breakout",
     "no_conference_circuit": true,
     "editorial_reason": "Demystifying self-custody for Spanish-speaking users through visual explainers and step-by-step wallet guides.",
     "artifacts": [
-      { "type": "youtube", "title": "Tu Primera Wallet: Guía Completa", "url": "https://youtube.com/example", "category": "Explain" },
-      { "type": "x", "title": "@lucia_web3", "url": "https://x.com/lucia_web3" },
-      { "type": "substack", "title": "Wallets Sin Miedo", "url": "https://substack.com/example", "category": "Explain" }
+      {
+        "type": "youtube",
+        "title": "Tu Primera Wallet: Guía Completa",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "x",
+        "title": "@lucia_web3",
+        "url": "https://x.com/lucia_web3"
+      },
+      {
+        "type": "substack",
+        "title": "Wallets Sin Miedo",
+        "url": "https://substack.com/example",
+        "category": "Explain"
+      }
     ],
     "recommendations": [
-      { "name": "Pablo Ortiz", "context": "Lucia's thread on seed phrase security is the best intro I've seen in Spanish." }
+      {
+        "name": "Pablo Ortiz",
+        "context": "Lucia's thread on seed phrase security is the best intro I've seen in Spanish."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "events_workshops"],
-    "chapter_ids": ["new-media-americas"],
-    "categories": ["Explain"],
-    "attending_event_ids": ["eth-denver-2026"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "events_workshops"
+    ],
+    "chapter_ids": [
+      "new-media-americas"
+    ],
+    "categories": [
+      "Explain"
+    ],
+    "attending_event_ids": [
+      "eth-denver-2026"
+    ],
     "created_at": "2025-12-15T00:00:00Z"
   },
   {
@@ -40,24 +74,64 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "privacy",
-    "signals": ["privacy", "zk", "education"],
-    "content_formats": ["writing", "podcast"],
+    "signals": [
+      "privacy",
+      "zk",
+      "education"
+    ],
+    "content_formats": [
+      "writing",
+      "podcast"
+    ],
     "trajectory": "emerging",
     "no_conference_circuit": true,
     "editorial_reason": "Breaking down zero-knowledge proofs for African developers, focusing on real-world identity and payment applications.",
     "artifacts": [
-      { "type": "substack", "title": "ZK Africa Weekly", "url": "https://substack.com/example", "category": "Explain" },
-      { "type": "podcast", "title": "Privacy Unlocked Pod", "url": "https://podcast.example.com", "category": "Document" },
-      { "type": "github", "title": "zk-starter-kit", "url": "https://github.com/example", "category": "Build" }
+      {
+        "type": "substack",
+        "title": "ZK Africa Weekly",
+        "url": "https://substack.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "podcast",
+        "title": "Privacy Unlocked Pod",
+        "url": "https://podcast.example.com",
+        "category": "Document"
+      },
+      {
+        "type": "github",
+        "title": "zk-starter-kit",
+        "url": "https://github.com/example",
+        "category": "Build"
+      }
     ],
     "recommendations": [
-      { "name": "Kwame Asante", "context": "Amara's ZK explainers made the concept click for our entire dev team." },
-      { "name": "Fatima Hassan", "context": "Essential reading for anyone building privacy-first infra in emerging markets." }
+      {
+        "name": "Kwame Asante",
+        "context": "Amara's ZK explainers made the concept click for our entire dev team."
+      },
+      {
+        "name": "Fatima Hassan",
+        "context": "Essential reading for anyone building privacy-first infra in emerging markets."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "product_feedback", "mentorship"],
-    "chapter_ids": ["new-media-africa"],
-    "categories": ["Explain", "Build"],
-    "attending_event_ids": ["web3-lagos-builder-night"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "product_feedback",
+      "mentorship"
+    ],
+    "chapter_ids": [
+      "new-media-africa"
+    ],
+    "categories": [
+      "Explain",
+      "Build"
+    ],
+    "attending_event_ids": [
+      "web3-lagos-builder-night"
+    ],
     "created_at": "2025-12-20T00:00:00Z"
   },
   {
@@ -71,22 +145,54 @@
     "location_visibility": "CITY",
     "collab_radius_km": 50,
     "primary_signal": "infra",
-    "signals": ["infra", "research", "zk"],
-    "content_formats": ["writing", "code"],
+    "signals": [
+      "infra",
+      "research",
+      "zk"
+    ],
+    "content_formats": [
+      "writing",
+      "code"
+    ],
     "trajectory": "quiet-contributor",
     "no_conference_circuit": true,
     "editorial_reason": "Creates beautifully detailed infrastructure diagrams that have become reference material for L2 teams globally.",
     "artifacts": [
-      { "type": "github", "title": "l2-architecture-diagrams", "url": "https://github.com/example", "category": "Document" },
-      { "type": "website", "title": "infra.yuki.dev", "url": "https://example.com", "category": "Explain" },
-      { "type": "article", "title": "Rollup Sequencer Deep Dive", "url": "https://medium.com/example", "category": "Explain" }
+      {
+        "type": "github",
+        "title": "l2-architecture-diagrams",
+        "url": "https://github.com/example",
+        "category": "Document"
+      },
+      {
+        "type": "website",
+        "title": "infra.yuki.dev",
+        "url": "https://example.com",
+        "category": "Explain"
+      },
+      {
+        "type": "article",
+        "title": "Rollup Sequencer Deep Dive",
+        "url": "https://medium.com/example",
+        "category": "Explain"
+      }
     ],
     "recommendations": [
-      { "name": "Elena Voronova", "context": "Yuki's diagrams are the gold standard. We use them in our internal docs." }
+      {
+        "name": "Elena Voronova",
+        "context": "Yuki's diagrams are the gold standard. We use them in our internal docs."
+      }
     ],
-    "intents": ["research_interviews"],
-    "chapter_ids": ["new-media-asia"],
-    "categories": ["Document", "Explain"],
+    "intents": [
+      "research_interviews"
+    ],
+    "chapter_ids": [
+      "new-media-asia"
+    ],
+    "categories": [
+      "Document",
+      "Explain"
+    ],
     "created_at": "2025-11-01T00:00:00Z"
   },
   {
@@ -100,23 +206,60 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 75,
     "primary_signal": "security",
-    "signals": ["security", "defi", "education"],
-    "content_formats": ["video", "threads", "talks"],
+    "signals": [
+      "security",
+      "defi",
+      "education"
+    ],
+    "content_formats": [
+      "video",
+      "threads",
+      "talks"
+    ],
     "trajectory": "builder-educator",
     "no_conference_circuit": false,
     "editorial_reason": "Former auditor turned educator, breaking down smart contract vulnerabilities through detailed post-mortems.",
     "artifacts": [
-      { "type": "youtube", "title": "Security Sunday Series", "url": "https://youtube.com/example", "category": "Explain" },
-      { "type": "x", "title": "@marcus_security", "url": "https://x.com/marcus_security" },
-      { "type": "github", "title": "defi-security-checklist", "url": "https://github.com/example", "category": "Document" }
+      {
+        "type": "youtube",
+        "title": "Security Sunday Series",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "x",
+        "title": "@marcus_security",
+        "url": "https://x.com/marcus_security"
+      },
+      {
+        "type": "github",
+        "title": "defi-security-checklist",
+        "url": "https://github.com/example",
+        "category": "Document"
+      }
     ],
     "recommendations": [
-      { "name": "Sarah Chen", "context": "Marcus's post-mortem on the bridge exploit saved us from a similar issue." },
-      { "name": "Alex Petrov", "context": "Best security education content in the space, hands down." }
+      {
+        "name": "Sarah Chen",
+        "context": "Marcus's post-mortem on the bridge exploit saved us from a similar issue."
+      },
+      {
+        "name": "Alex Petrov",
+        "context": "Best security education content in the space, hands down."
+      }
     ],
-    "intents": ["collaboration", "events_workshops", "mentorship"],
-    "chapter_ids": ["new-media-europe"],
-    "categories": ["Explain", "Critique"],
+    "intents": [
+      "collaboration",
+      "events_workshops",
+      "mentorship"
+    ],
+    "chapter_ids": [
+      "new-media-europe"
+    ],
+    "categories": [
+      "Explain",
+      "Critique"
+    ],
     "created_at": "2025-10-15T00:00:00Z"
   },
   {
@@ -130,22 +273,56 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "aa",
-    "signals": ["aa", "wallets", "ux"],
-    "content_formats": ["code", "writing", "threads"],
+    "signals": [
+      "aa",
+      "wallets",
+      "ux"
+    ],
+    "content_formats": [
+      "code",
+      "writing",
+      "threads"
+    ],
     "trajectory": "breakout",
     "no_conference_circuit": true,
     "editorial_reason": "Building the definitive open-source toolkit for account abstraction, with clear documentation that actually helps developers ship.",
     "artifacts": [
-      { "type": "github", "title": "aa-sdk-toolkit", "url": "https://github.com/example", "category": "Build" },
-      { "type": "article", "title": "Account Abstraction From Zero", "url": "https://mirror.xyz/example", "category": "Explain" },
-      { "type": "x", "title": "@priya_aa", "url": "https://x.com/priya_aa" }
+      {
+        "type": "github",
+        "title": "aa-sdk-toolkit",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "article",
+        "title": "Account Abstraction From Zero",
+        "url": "https://mirror.xyz/example",
+        "category": "Explain"
+      },
+      {
+        "type": "x",
+        "title": "@priya_aa",
+        "url": "https://x.com/priya_aa"
+      }
     ],
     "recommendations": [
-      { "name": "Raj Patel", "context": "Priya's toolkit cut our integration time from weeks to days." }
+      {
+        "name": "Raj Patel",
+        "context": "Priya's toolkit cut our integration time from weeks to days."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "product_feedback"],
-    "chapter_ids": ["new-media-asia"],
-    "categories": ["Build", "Explain"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "product_feedback"
+    ],
+    "chapter_ids": [
+      "new-media-asia"
+    ],
+    "categories": [
+      "Build",
+      "Explain"
+    ],
     "created_at": "2025-12-01T00:00:00Z"
   },
   {
@@ -159,21 +336,52 @@
     "location_visibility": "CITY",
     "collab_radius_km": 50,
     "primary_signal": "defi",
-    "signals": ["defi", "research", "security"],
-    "content_formats": ["writing", "podcast"],
+    "signals": [
+      "defi",
+      "research",
+      "security"
+    ],
+    "content_formats": [
+      "writing",
+      "podcast"
+    ],
     "trajectory": "emerging",
     "no_conference_circuit": true,
     "editorial_reason": "Rigorous DeFi mechanism analysis that bridges academic research and practical protocol design.",
     "artifacts": [
-      { "type": "substack", "title": "DeFi Mechanisms", "url": "https://substack.com/example", "category": "Explain" },
-      { "type": "podcast", "title": "Protocol Deep Dives", "url": "https://podcast.example.com", "category": "Critique" },
-      { "type": "article", "title": "AMM Invariant Analysis", "url": "https://arxiv.org/example", "category": "Critique" }
+      {
+        "type": "substack",
+        "title": "DeFi Mechanisms",
+        "url": "https://substack.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "podcast",
+        "title": "Protocol Deep Dives",
+        "url": "https://podcast.example.com",
+        "category": "Critique"
+      },
+      {
+        "type": "article",
+        "title": "AMM Invariant Analysis",
+        "url": "https://arxiv.org/example",
+        "category": "Critique"
+      }
     ],
     "recommendations": [],
-    "intents": ["research_interviews"],
-    "chapter_ids": ["new-media-asia"],
-    "categories": ["Explain", "Critique"],
-    "attending_event_ids": ["aa-hackathon-singapore"],
+    "intents": [
+      "research_interviews"
+    ],
+    "chapter_ids": [
+      "new-media-asia"
+    ],
+    "categories": [
+      "Explain",
+      "Critique"
+    ],
+    "attending_event_ids": [
+      "aa-hackathon-singapore"
+    ],
     "created_at": "2026-01-02T00:00:00Z"
   },
   {
@@ -187,22 +395,56 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "education",
-    "signals": ["education", "wallets", "dao"],
-    "content_formats": ["video", "podcast", "threads"],
+    "signals": [
+      "education",
+      "wallets",
+      "dao"
+    ],
+    "content_formats": [
+      "video",
+      "podcast",
+      "threads"
+    ],
     "trajectory": "breakout",
     "no_conference_circuit": true,
     "editorial_reason": "Building the largest Spanish-language Web3 education community, focused on practical onboarding.",
     "artifacts": [
-      { "type": "youtube", "title": "Web3 Desde Cero", "url": "https://youtube.com/example", "category": "Explain" },
-      { "type": "podcast", "title": "Café Cripto", "url": "https://podcast.example.com", "category": "Explain" },
-      { "type": "x", "title": "@sofia_web3", "url": "https://x.com/sofia_web3" }
+      {
+        "type": "youtube",
+        "title": "Web3 Desde Cero",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "podcast",
+        "title": "Café Cripto",
+        "url": "https://podcast.example.com",
+        "category": "Explain"
+      },
+      {
+        "type": "x",
+        "title": "@sofia_web3",
+        "url": "https://x.com/sofia_web3"
+      }
     ],
     "recommendations": [
-      { "name": "Carlos Vega", "context": "Sofia's content onboarded more LATAM users than any conference." }
+      {
+        "name": "Carlos Vega",
+        "context": "Sofia's content onboarded more LATAM users than any conference."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "events_workshops", "mentorship"],
-    "chapter_ids": ["new-media-americas"],
-    "categories": ["Explain"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "events_workshops",
+      "mentorship"
+    ],
+    "chapter_ids": [
+      "new-media-americas"
+    ],
+    "categories": [
+      "Explain"
+    ],
     "created_at": "2025-11-20T00:00:00Z"
   },
   {
@@ -216,22 +458,57 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 150,
     "primary_signal": "infra",
-    "signals": ["infra", "education", "wallets"],
-    "content_formats": ["writing", "code", "talks"],
+    "signals": [
+      "infra",
+      "education",
+      "wallets"
+    ],
+    "content_formats": [
+      "writing",
+      "code",
+      "talks"
+    ],
     "trajectory": "quiet-contributor",
     "no_conference_circuit": true,
     "editorial_reason": "Building mobile-first infrastructure for low-bandwidth environments, with open documentation for local devs.",
     "artifacts": [
-      { "type": "github", "title": "lite-rpc-client", "url": "https://github.com/example", "category": "Build" },
-      { "type": "article", "title": "Web3 for 2G Networks", "url": "https://mirror.xyz/example", "category": "Apply" },
-      { "type": "website", "title": "mobilechain.africa", "url": "https://example.com", "category": "Build" }
+      {
+        "type": "github",
+        "title": "lite-rpc-client",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "article",
+        "title": "Web3 for 2G Networks",
+        "url": "https://mirror.xyz/example",
+        "category": "Apply"
+      },
+      {
+        "type": "website",
+        "title": "mobilechain.africa",
+        "url": "https://example.com",
+        "category": "Build"
+      }
     ],
     "recommendations": [
-      { "name": "Aisha Mwangi", "context": "Kwame's RPC client works where nothing else does." }
+      {
+        "name": "Aisha Mwangi",
+        "context": "Kwame's RPC client works where nothing else does."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "product_feedback"],
-    "chapter_ids": ["new-media-africa"],
-    "categories": ["Build", "Apply"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "product_feedback"
+    ],
+    "chapter_ids": [
+      "new-media-africa"
+    ],
+    "categories": [
+      "Build",
+      "Apply"
+    ],
     "created_at": "2025-09-01T00:00:00Z"
   },
   {
@@ -245,24 +522,65 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 75,
     "primary_signal": "zk",
-    "signals": ["zk", "research", "education"],
-    "content_formats": ["writing", "talks", "code"],
+    "signals": [
+      "zk",
+      "research",
+      "education"
+    ],
+    "content_formats": [
+      "writing",
+      "talks",
+      "code"
+    ],
     "trajectory": "builder-educator",
     "no_conference_circuit": false,
     "editorial_reason": "Former cryptographer making ZK circuits accessible through interactive tutorials and visual proofs.",
     "artifacts": [
-      { "type": "website", "title": "zk.school", "url": "https://example.com", "category": "Explain" },
-      { "type": "github", "title": "circom-playground", "url": "https://github.com/example", "category": "Build" },
-      { "type": "youtube", "title": "ZK Visualized", "url": "https://youtube.com/example", "category": "Explain" }
+      {
+        "type": "website",
+        "title": "zk.school",
+        "url": "https://example.com",
+        "category": "Explain"
+      },
+      {
+        "type": "github",
+        "title": "circom-playground",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "youtube",
+        "title": "ZK Visualized",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      }
     ],
     "recommendations": [
-      { "name": "Marcus Schmidt", "context": "Elena's interactive ZK tutorials are how I finally understood SNARKs." },
-      { "name": "Chen Wei", "context": "The best bridge between ZK theory and practice." }
+      {
+        "name": "Marcus Schmidt",
+        "context": "Elena's interactive ZK tutorials are how I finally understood SNARKs."
+      },
+      {
+        "name": "Chen Wei",
+        "context": "The best bridge between ZK theory and practice."
+      }
     ],
-    "intents": ["events_workshops", "mentorship", "research_interviews"],
-    "chapter_ids": ["new-media-europe"],
-    "categories": ["Explain", "Build"],
-    "attending_event_ids": ["zk-workshop-lisbon", "eth-denver-2026"],
+    "intents": [
+      "events_workshops",
+      "mentorship",
+      "research_interviews"
+    ],
+    "chapter_ids": [
+      "new-media-europe"
+    ],
+    "categories": [
+      "Explain",
+      "Build"
+    ],
+    "attending_event_ids": [
+      "zk-workshop-lisbon",
+      "eth-denver-2026"
+    ],
     "created_at": "2025-08-15T00:00:00Z"
   },
   {
@@ -276,20 +594,51 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "identity",
-    "signals": ["identity", "privacy", "aa"],
-    "content_formats": ["writing", "code", "threads"],
+    "signals": [
+      "identity",
+      "privacy",
+      "aa"
+    ],
+    "content_formats": [
+      "writing",
+      "code",
+      "threads"
+    ],
     "trajectory": "emerging",
     "no_conference_circuit": true,
     "editorial_reason": "Pioneering decentralized identity solutions for underbanked populations, with a focus on privacy-preserving credentials.",
     "artifacts": [
-      { "type": "github", "title": "did-africa", "url": "https://github.com/example", "category": "Build" },
-      { "type": "article", "title": "Identity Without Papers", "url": "https://mirror.xyz/example", "category": "Apply" },
-      { "type": "x", "title": "@james_did", "url": "https://x.com/james_did" }
+      {
+        "type": "github",
+        "title": "did-africa",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "article",
+        "title": "Identity Without Papers",
+        "url": "https://mirror.xyz/example",
+        "category": "Apply"
+      },
+      {
+        "type": "x",
+        "title": "@james_did",
+        "url": "https://x.com/james_did"
+      }
     ],
     "recommendations": [],
-    "intents": ["collaboration", "local_meetups", "product_feedback"],
-    "chapter_ids": ["new-media-africa"],
-    "categories": ["Build", "Apply"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "product_feedback"
+    ],
+    "chapter_ids": [
+      "new-media-africa"
+    ],
+    "categories": [
+      "Build",
+      "Apply"
+    ],
     "created_at": "2026-01-05T00:00:00Z"
   },
   {
@@ -303,22 +652,57 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "dao",
-    "signals": ["dao", "education", "social"],
-    "content_formats": ["podcast", "writing", "video"],
+    "signals": [
+      "dao",
+      "education",
+      "social"
+    ],
+    "content_formats": [
+      "podcast",
+      "writing",
+      "video"
+    ],
     "trajectory": "breakout",
     "no_conference_circuit": true,
     "editorial_reason": "Documenting DAO governance experiments across LATAM, creating playbooks for community coordination.",
     "artifacts": [
-      { "type": "podcast", "title": "DAO Diaries Brasil", "url": "https://podcast.example.com", "category": "Document" },
-      { "type": "substack", "title": "Governance Lab", "url": "https://substack.com/example", "category": "Explain" },
-      { "type": "youtube", "title": "DAO Case Studies", "url": "https://youtube.com/example", "category": "Document" }
+      {
+        "type": "podcast",
+        "title": "DAO Diaries Brasil",
+        "url": "https://podcast.example.com",
+        "category": "Document"
+      },
+      {
+        "type": "substack",
+        "title": "Governance Lab",
+        "url": "https://substack.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "youtube",
+        "title": "DAO Case Studies",
+        "url": "https://youtube.com/example",
+        "category": "Document"
+      }
     ],
     "recommendations": [
-      { "name": "Paulo Nascimento", "context": "Maria's governance playbook helped us avoid classic DAO pitfalls." }
+      {
+        "name": "Paulo Nascimento",
+        "context": "Maria's governance playbook helped us avoid classic DAO pitfalls."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "events_workshops"],
-    "chapter_ids": ["new-media-americas"],
-    "categories": ["Document", "Explain"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "events_workshops"
+    ],
+    "chapter_ids": [
+      "new-media-americas"
+    ],
+    "categories": [
+      "Document",
+      "Explain"
+    ],
     "created_at": "2025-10-01T00:00:00Z"
   },
   {
@@ -332,20 +716,49 @@
     "location_visibility": "CITY",
     "collab_radius_km": 50,
     "primary_signal": "gaming",
-    "signals": ["gaming", "nft", "ux"],
-    "content_formats": ["video", "threads", "code"],
+    "signals": [
+      "gaming",
+      "nft",
+      "ux"
+    ],
+    "content_formats": [
+      "video",
+      "threads",
+      "code"
+    ],
     "trajectory": "emerging",
     "no_conference_circuit": true,
     "editorial_reason": "Building open-source game asset standards and documenting the intersection of Web3 and game design.",
     "artifacts": [
-      { "type": "github", "title": "game-asset-standard", "url": "https://github.com/example", "category": "Build" },
-      { "type": "youtube", "title": "Web3 Game Dev", "url": "https://youtube.com/example", "category": "Explain" },
-      { "type": "x", "title": "@alexkim_games", "url": "https://x.com/alexkim_games" }
+      {
+        "type": "github",
+        "title": "game-asset-standard",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "youtube",
+        "title": "Web3 Game Dev",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "x",
+        "title": "@alexkim_games",
+        "url": "https://x.com/alexkim_games"
+      }
     ],
     "recommendations": [],
-    "intents": ["product_feedback"],
-    "chapter_ids": ["new-media-asia"],
-    "categories": ["Build", "Explain"],
+    "intents": [
+      "product_feedback"
+    ],
+    "chapter_ids": [
+      "new-media-asia"
+    ],
+    "categories": [
+      "Build",
+      "Explain"
+    ],
     "created_at": "2025-12-28T00:00:00Z"
   },
   {
@@ -359,22 +772,57 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "aa",
-    "signals": ["aa", "security", "ux"],
-    "content_formats": ["writing", "code", "talks"],
+    "signals": [
+      "aa",
+      "security",
+      "ux"
+    ],
+    "content_formats": [
+      "writing",
+      "code",
+      "talks"
+    ],
     "trajectory": "builder-educator",
     "no_conference_circuit": false,
     "editorial_reason": "Leading AA research with a focus on security patterns and user-centric wallet recovery flows.",
     "artifacts": [
-      { "type": "github", "title": "aa-security-patterns", "url": "https://github.com/example", "category": "Build" },
-      { "type": "article", "title": "Social Recovery Done Right", "url": "https://mirror.xyz/example", "category": "Explain" },
-      { "type": "website", "title": "aa.sarahchen.dev", "url": "https://example.com", "category": "Document" }
+      {
+        "type": "github",
+        "title": "aa-security-patterns",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "article",
+        "title": "Social Recovery Done Right",
+        "url": "https://mirror.xyz/example",
+        "category": "Explain"
+      },
+      {
+        "type": "website",
+        "title": "aa.sarahchen.dev",
+        "url": "https://example.com",
+        "category": "Document"
+      }
     ],
     "recommendations": [
-      { "name": "Priya Sharma", "context": "Sarah's security patterns document should be required reading." }
+      {
+        "name": "Priya Sharma",
+        "context": "Sarah's security patterns document should be required reading."
+      }
     ],
-    "intents": ["collaboration", "events_workshops", "mentorship"],
-    "chapter_ids": ["new-media-americas"],
-    "categories": ["Build", "Explain"],
+    "intents": [
+      "collaboration",
+      "events_workshops",
+      "mentorship"
+    ],
+    "chapter_ids": [
+      "new-media-americas"
+    ],
+    "categories": [
+      "Build",
+      "Explain"
+    ],
     "created_at": "2025-07-01T00:00:00Z"
   },
   {
@@ -388,22 +836,55 @@
     "location_visibility": "COUNTRY",
     "collab_radius_km": 50,
     "primary_signal": "privacy",
-    "signals": ["privacy", "zk", "research"],
-    "content_formats": ["writing", "podcast", "code"],
+    "signals": [
+      "privacy",
+      "zk",
+      "research"
+    ],
+    "content_formats": [
+      "writing",
+      "podcast",
+      "code"
+    ],
     "trajectory": "quiet-contributor",
     "no_conference_circuit": true,
     "editorial_reason": "Deep technical privacy research with practical implementation guides for protocol developers.",
     "artifacts": [
-      { "type": "github", "title": "privacy-primitives", "url": "https://github.com/example", "category": "Build" },
-      { "type": "podcast", "title": "Privacy Engineering", "url": "https://podcast.example.com", "category": "Explain" },
-      { "type": "article", "title": "Practical Mixnets", "url": "https://arxiv.org/example", "category": "Critique" }
+      {
+        "type": "github",
+        "title": "privacy-primitives",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "podcast",
+        "title": "Privacy Engineering",
+        "url": "https://podcast.example.com",
+        "category": "Explain"
+      },
+      {
+        "type": "article",
+        "title": "Practical Mixnets",
+        "url": "https://arxiv.org/example",
+        "category": "Critique"
+      }
     ],
     "recommendations": [
-      { "name": "Amara Okafor", "context": "Thomas's mixnet research influenced our entire privacy architecture." }
+      {
+        "name": "Amara Okafor",
+        "context": "Thomas's mixnet research influenced our entire privacy architecture."
+      }
     ],
-    "intents": ["research_interviews"],
-    "chapter_ids": ["new-media-europe"],
-    "categories": ["Build", "Critique"],
+    "intents": [
+      "research_interviews"
+    ],
+    "chapter_ids": [
+      "new-media-europe"
+    ],
+    "categories": [
+      "Build",
+      "Critique"
+    ],
     "created_at": "2025-06-15T00:00:00Z"
   },
   {
@@ -417,22 +898,57 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 75,
     "primary_signal": "ux",
-    "signals": ["ux", "wallets", "education"],
-    "content_formats": ["writing", "video", "threads"],
+    "signals": [
+      "ux",
+      "wallets",
+      "education"
+    ],
+    "content_formats": [
+      "writing",
+      "video",
+      "threads"
+    ],
     "trajectory": "breakout",
     "no_conference_circuit": true,
     "editorial_reason": "Pioneering Web3 UX research with actionable design patterns for wallet and dApp interfaces.",
     "artifacts": [
-      { "type": "substack", "title": "UX3 Design", "url": "https://substack.com/example", "category": "Explain" },
-      { "type": "youtube", "title": "Wallet UX Reviews", "url": "https://youtube.com/example", "category": "Critique" },
-      { "type": "website", "title": "ux3.design", "url": "https://example.com", "category": "Document" }
+      {
+        "type": "substack",
+        "title": "UX3 Design",
+        "url": "https://substack.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "youtube",
+        "title": "Wallet UX Reviews",
+        "url": "https://youtube.com/example",
+        "category": "Critique"
+      },
+      {
+        "type": "website",
+        "title": "ux3.design",
+        "url": "https://example.com",
+        "category": "Document"
+      }
     ],
     "recommendations": [
-      { "name": "Lucia Mendez", "context": "Anna's UX patterns transformed how we think about onboarding." }
+      {
+        "name": "Lucia Mendez",
+        "context": "Anna's UX patterns transformed how we think about onboarding."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "product_feedback"],
-    "chapter_ids": ["new-media-europe"],
-    "categories": ["Explain", "Critique"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "product_feedback"
+    ],
+    "chapter_ids": [
+      "new-media-europe"
+    ],
+    "categories": [
+      "Explain",
+      "Critique"
+    ],
     "created_at": "2025-11-10T00:00:00Z"
   },
   {
@@ -446,20 +962,52 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "defi",
-    "signals": ["defi", "infra", "education"],
-    "content_formats": ["code", "writing", "video"],
+    "signals": [
+      "defi",
+      "infra",
+      "education"
+    ],
+    "content_formats": [
+      "code",
+      "writing",
+      "video"
+    ],
     "trajectory": "emerging",
     "no_conference_circuit": true,
     "editorial_reason": "Building DeFi infrastructure optimized for Southeast Asian markets with comprehensive documentation.",
     "artifacts": [
-      { "type": "github", "title": "sea-defi-sdk", "url": "https://github.com/example", "category": "Build" },
-      { "type": "youtube", "title": "DeFi Dev Vietnam", "url": "https://youtube.com/example", "category": "Explain" },
-      { "type": "article", "title": "Cross-Chain SEA", "url": "https://mirror.xyz/example", "category": "Apply" }
+      {
+        "type": "github",
+        "title": "sea-defi-sdk",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "youtube",
+        "title": "DeFi Dev Vietnam",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "article",
+        "title": "Cross-Chain SEA",
+        "url": "https://mirror.xyz/example",
+        "category": "Apply"
+      }
     ],
     "recommendations": [],
-    "intents": ["collaboration", "local_meetups", "product_feedback"],
-    "chapter_ids": ["new-media-asia"],
-    "categories": ["Build", "Apply"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "product_feedback"
+    ],
+    "chapter_ids": [
+      "new-media-asia"
+    ],
+    "categories": [
+      "Build",
+      "Apply"
+    ],
     "created_at": "2026-01-03T00:00:00Z"
   },
   {
@@ -473,22 +1021,57 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "nft",
-    "signals": ["nft", "social", "education"],
-    "content_formats": ["podcast", "writing", "video"],
+    "signals": [
+      "nft",
+      "social",
+      "education"
+    ],
+    "content_formats": [
+      "podcast",
+      "writing",
+      "video"
+    ],
     "trajectory": "breakout",
     "no_conference_circuit": true,
     "editorial_reason": "Curating the intersection of digital art and Web3, with deep dives into creator economics and provenance.",
     "artifacts": [
-      { "type": "podcast", "title": "Art on Chain", "url": "https://podcast.example.com", "category": "Document" },
-      { "type": "substack", "title": "Creator Economics", "url": "https://substack.com/example", "category": "Critique" },
-      { "type": "youtube", "title": "NFT Deep Dives", "url": "https://youtube.com/example", "category": "Explain" }
+      {
+        "type": "podcast",
+        "title": "Art on Chain",
+        "url": "https://podcast.example.com",
+        "category": "Document"
+      },
+      {
+        "type": "substack",
+        "title": "Creator Economics",
+        "url": "https://substack.com/example",
+        "category": "Critique"
+      },
+      {
+        "type": "youtube",
+        "title": "NFT Deep Dives",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      }
     ],
     "recommendations": [
-      { "name": "Marco Bianchi", "context": "Isabella's analysis of creator royalties changed industry discourse." }
+      {
+        "name": "Marco Bianchi",
+        "context": "Isabella's analysis of creator royalties changed industry discourse."
+      }
     ],
-    "intents": ["collaboration", "events_workshops", "research_interviews"],
-    "chapter_ids": ["new-media-europe"],
-    "categories": ["Document", "Critique"],
+    "intents": [
+      "collaboration",
+      "events_workshops",
+      "research_interviews"
+    ],
+    "chapter_ids": [
+      "new-media-europe"
+    ],
+    "categories": [
+      "Document",
+      "Critique"
+    ],
     "created_at": "2025-09-20T00:00:00Z"
   },
   {
@@ -502,23 +1085,58 @@
     "location_visibility": "CITY",
     "collab_radius_km": 50,
     "primary_signal": "aa",
-    "signals": ["aa", "wallets", "security"],
-    "content_formats": ["code", "threads", "talks"],
+    "signals": [
+      "aa",
+      "wallets",
+      "security"
+    ],
+    "content_formats": [
+      "code",
+      "threads",
+      "talks"
+    ],
     "trajectory": "builder-educator",
     "no_conference_circuit": false,
     "editorial_reason": "Core contributor to major AA implementations with a gift for explaining complex concepts simply.",
     "artifacts": [
-      { "type": "github", "title": "erc4337-utils", "url": "https://github.com/example", "category": "Build" },
-      { "type": "x", "title": "@michael_aa", "url": "https://x.com/michael_aa" },
-      { "type": "talk", "title": "AA Workshop ETH Denver", "url": "https://youtube.com/example", "category": "Explain" }
+      {
+        "type": "github",
+        "title": "erc4337-utils",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "x",
+        "title": "@michael_aa",
+        "url": "https://x.com/michael_aa"
+      },
+      {
+        "type": "talk",
+        "title": "AA Workshop ETH Denver",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      }
     ],
     "recommendations": [
-      { "name": "Sarah Chen", "context": "Michael's AA utils are production-tested and well-maintained." },
-      { "name": "Priya Sharma", "context": "Clear code, clear docs, responsive maintainer. The trifecta." }
+      {
+        "name": "Sarah Chen",
+        "context": "Michael's AA utils are production-tested and well-maintained."
+      },
+      {
+        "name": "Priya Sharma",
+        "context": "Clear code, clear docs, responsive maintainer. The trifecta."
+      }
     ],
-    "intents": ["events_workshops"],
-    "chapter_ids": ["new-media-americas"],
-    "categories": ["Build", "Explain"],
+    "intents": [
+      "events_workshops"
+    ],
+    "chapter_ids": [
+      "new-media-americas"
+    ],
+    "categories": [
+      "Build",
+      "Explain"
+    ],
     "created_at": "2025-05-01T00:00:00Z"
   },
   {
@@ -532,22 +1150,55 @@
     "location_visibility": "CITY",
     "collab_radius_km": 50,
     "primary_signal": "research",
-    "signals": ["research", "defi", "security"],
-    "content_formats": ["writing", "podcast", "talks"],
+    "signals": [
+      "research",
+      "defi",
+      "security"
+    ],
+    "content_formats": [
+      "writing",
+      "podcast",
+      "talks"
+    ],
     "trajectory": "quiet-contributor",
     "no_conference_circuit": false,
     "editorial_reason": "Academic researcher bridging traditional finance and DeFi, publishing accessible analysis of systemic risks.",
     "artifacts": [
-      { "type": "article", "title": "DeFi Systemic Risk Framework", "url": "https://arxiv.org/example", "category": "Critique" },
-      { "type": "podcast", "title": "Research Frontiers", "url": "https://podcast.example.com", "category": "Explain" },
-      { "type": "substack", "title": "DeFi Research Digest", "url": "https://substack.com/example", "category": "Critique" }
+      {
+        "type": "article",
+        "title": "DeFi Systemic Risk Framework",
+        "url": "https://arxiv.org/example",
+        "category": "Critique"
+      },
+      {
+        "type": "podcast",
+        "title": "Research Frontiers",
+        "url": "https://podcast.example.com",
+        "category": "Explain"
+      },
+      {
+        "type": "substack",
+        "title": "DeFi Research Digest",
+        "url": "https://substack.com/example",
+        "category": "Critique"
+      }
     ],
     "recommendations": [
-      { "name": "Chen Wei", "context": "Fatima's risk framework is now cited in regulatory discussions." }
+      {
+        "name": "Chen Wei",
+        "context": "Fatima's risk framework is now cited in regulatory discussions."
+      }
     ],
-    "intents": ["research_interviews"],
-    "chapter_ids": ["new-media-europe"],
-    "categories": ["Critique", "Explain"],
+    "intents": [
+      "research_interviews"
+    ],
+    "chapter_ids": [
+      "new-media-europe"
+    ],
+    "categories": [
+      "Critique",
+      "Explain"
+    ],
     "created_at": "2025-04-15T00:00:00Z"
   },
   {
@@ -561,22 +1212,57 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "infra",
-    "signals": ["infra", "defi", "aa"],
-    "content_formats": ["code", "writing", "video"],
+    "signals": [
+      "infra",
+      "defi",
+      "aa"
+    ],
+    "content_formats": [
+      "code",
+      "writing",
+      "video"
+    ],
     "trajectory": "emerging",
     "no_conference_circuit": true,
     "editorial_reason": "Building developer tooling for multi-chain deployments with exceptional documentation and tutorials.",
     "artifacts": [
-      { "type": "github", "title": "multichain-deploy", "url": "https://github.com/example", "category": "Build" },
-      { "type": "youtube", "title": "Infra Explained", "url": "https://youtube.com/example", "category": "Explain" },
-      { "type": "website", "title": "chaintools.dev", "url": "https://example.com", "category": "Document" }
+      {
+        "type": "github",
+        "title": "multichain-deploy",
+        "url": "https://github.com/example",
+        "category": "Build"
+      },
+      {
+        "type": "youtube",
+        "title": "Infra Explained",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "website",
+        "title": "chaintools.dev",
+        "url": "https://example.com",
+        "category": "Document"
+      }
     ],
     "recommendations": [
-      { "name": "David Nguyen", "context": "Raj's deployment tooling saved us weeks of integration work." }
+      {
+        "name": "David Nguyen",
+        "context": "Raj's deployment tooling saved us weeks of integration work."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "product_feedback"],
-    "chapter_ids": ["new-media-asia"],
-    "categories": ["Build", "Explain"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "product_feedback"
+    ],
+    "chapter_ids": [
+      "new-media-asia"
+    ],
+    "categories": [
+      "Build",
+      "Explain"
+    ],
     "created_at": "2025-12-10T00:00:00Z"
   },
   {
@@ -590,22 +1276,57 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "defi",
-    "signals": ["defi", "education", "wallets"],
-    "content_formats": ["video", "podcast", "threads"],
+    "signals": [
+      "defi",
+      "education",
+      "wallets"
+    ],
+    "content_formats": [
+      "video",
+      "podcast",
+      "threads"
+    ],
     "trajectory": "breakout",
     "no_conference_circuit": true,
     "editorial_reason": "Bridging traditional finance expertise with DeFi education for the MENA region.",
     "artifacts": [
-      { "type": "youtube", "title": "DeFi Unlocked Arabia", "url": "https://youtube.com/example", "category": "Explain" },
-      { "type": "podcast", "title": "Crypto MENA", "url": "https://podcast.example.com", "category": "Document" },
-      { "type": "x", "title": "@omar_defi", "url": "https://x.com/omar_defi" }
+      {
+        "type": "youtube",
+        "title": "DeFi Unlocked Arabia",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "podcast",
+        "title": "Crypto MENA",
+        "url": "https://podcast.example.com",
+        "category": "Document"
+      },
+      {
+        "type": "x",
+        "title": "@omar_defi",
+        "url": "https://x.com/omar_defi"
+      }
     ],
     "recommendations": [
-      { "name": "Layla Ahmed", "context": "Omar's content is the go-to resource for Arabic-speaking DeFi newcomers." }
+      {
+        "name": "Layla Ahmed",
+        "context": "Omar's content is the go-to resource for Arabic-speaking DeFi newcomers."
+      }
     ],
-    "intents": ["collaboration", "local_meetups", "events_workshops", "mentorship"],
-    "chapter_ids": ["new-media-mena"],
-    "categories": ["Explain", "Document"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "events_workshops",
+      "mentorship"
+    ],
+    "chapter_ids": [
+      "new-media-mena"
+    ],
+    "categories": [
+      "Explain",
+      "Document"
+    ],
     "created_at": "2025-12-05T00:00:00Z"
   },
   {
@@ -619,20 +1340,50 @@
     "location_visibility": "NEAR_ME",
     "collab_radius_km": 100,
     "primary_signal": "education",
-    "signals": ["education", "wallets", "privacy"],
-    "content_formats": ["writing", "video", "threads"],
+    "signals": [
+      "education",
+      "wallets",
+      "privacy"
+    ],
+    "content_formats": [
+      "writing",
+      "video",
+      "threads"
+    ],
     "trajectory": "emerging",
     "no_conference_circuit": true,
     "editorial_reason": "Creating Arabic-language security guides and privacy education for emerging market users.",
     "artifacts": [
-      { "type": "substack", "title": "Crypto Security Arabic", "url": "https://substack.com/example", "category": "Explain" },
-      { "type": "youtube", "title": "حماية أموالك", "url": "https://youtube.com/example", "category": "Explain" },
-      { "type": "x", "title": "@layla_crypto", "url": "https://x.com/layla_crypto" }
+      {
+        "type": "substack",
+        "title": "Crypto Security Arabic",
+        "url": "https://substack.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "youtube",
+        "title": "حماية أموالك",
+        "url": "https://youtube.com/example",
+        "category": "Explain"
+      },
+      {
+        "type": "x",
+        "title": "@layla_crypto",
+        "url": "https://x.com/layla_crypto"
+      }
     ],
     "recommendations": [],
-    "intents": ["collaboration", "local_meetups", "mentorship"],
-    "chapter_ids": ["new-media-mena"],
-    "categories": ["Explain"],
+    "intents": [
+      "collaboration",
+      "local_meetups",
+      "mentorship"
+    ],
+    "chapter_ids": [
+      "new-media-mena"
+    ],
+    "categories": [
+      "Explain"
+    ],
     "created_at": "2026-01-06T00:00:00Z"
   }
 ]
