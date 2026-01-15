@@ -14,6 +14,14 @@ interface CreatorsMapProps {
   creators: Creator[];
 }
 
+// Type for creators with valid coordinates
+type CreatorWithCoords = Creator & { lat: number; lng: number };
+
+// Filter creators to only those with valid coordinates
+function getCreatorsWithCoords(creators: Creator[]): CreatorWithCoords[] {
+  return creators.filter((c): c is CreatorWithCoords => c.lat !== null && c.lng !== null);
+}
+
 // Create custom avatar marker icon
 function createAvatarIcon(creator: Creator): L.DivIcon {
   const color = getSignalColor(creator.primary_signal);
@@ -53,7 +61,7 @@ function createClusterIcon(cluster: { getChildCount: () => number }): L.DivIcon 
 }
 
 // Map bounds handler
-function MapBoundsHandler({ creators }: { creators: Creator[] }) {
+function MapBoundsHandler({ creators }: { creators: CreatorWithCoords[] }) {
   const map = useMap();
 
   useEffect(() => {
@@ -104,6 +112,9 @@ function DynamicTileLayer() {
 export function CreatorsMap({ creators }: CreatorsMapProps) {
   const [isMounted, setIsMounted] = useState(false);
   const { resolvedTheme } = useTheme();
+
+  // Filter to only creators with valid coordinates
+  const creatorsWithCoords = getCreatorsWithCoords(creators);
 
   useEffect(() => {
     setIsMounted(true);
@@ -195,7 +206,7 @@ export function CreatorsMap({ creators }: CreatorsMapProps) {
         className="z-0"
       >
         <DynamicTileLayer />
-        <MapBoundsHandler creators={creators} />
+        <MapBoundsHandler creators={creatorsWithCoords} />
         <MarkerClusterGroup
           chunkedLoading
           iconCreateFunction={createClusterIcon}
@@ -203,7 +214,7 @@ export function CreatorsMap({ creators }: CreatorsMapProps) {
           spiderfyOnMaxZoom
           showCoverageOnHover={false}
         >
-          {creators.map((creator) => (
+          {creatorsWithCoords.map((creator) => (
             <Marker
               key={creator.id}
               position={[creator.lat, creator.lng]}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "africa-2026-01",
+    "chapter_id": "new-media-africa",
+    "month": "2026-01",
+    "title": "January 2026 African Voices",
+    "creator_ids": ["amara-okafor", "james-okonkwo", "kwame-mensah"],
+    "published_at": "2026-01-10T00:00:00Z"
+  },
+  {
+    "id": "europe-2025-12",
+    "chapter_id": "new-media-europe",
+    "month": "2025-12",
+    "title": "December 2025 European Highlights",
+    "creator_ids": ["marcus-schmidt", "elena-voronova", "anna-petrov", "isabella-rossi"],
+    "published_at": "2025-12-15T00:00:00Z"
+  },
+  {
+    "id": "americas-2025-12",
+    "chapter_id": "new-media-americas",
+    "month": "2025-12",
+    "title": "December 2025 Americas Selection",
+    "creator_ids": ["lucia-mendez", "sofia-rodriguez", "maria-santos"],
+    "published_at": "2025-12-12T00:00:00Z"
+  },
+  {
+    "id": "asia-2026-01",
+    "chapter_id": "new-media-asia",
+    "month": "2026-01",
+    "title": "January 2026 Asian Innovators",
+    "creator_ids": ["priya-sharma", "chen-wei", "david-nguyen", "yuki-tanaka", "raj-patel"],
+    "published_at": "2026-01-08T00:00:00Z"
+  },
+  {
+    "id": "mena-2026-01",
+    "chapter_id": "new-media-mena",
+    "month": "2026-01",
+    "title": "January 2026 MENA Spotlight",
+    "creator_ids": ["omar-hassan", "layla-ahmed"],
+    "published_at": "2026-01-05T00:00:00Z"
+  }
+]

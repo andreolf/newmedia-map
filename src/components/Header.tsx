@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Radio, Users, Heart, Plus, Globe, MapPin, Menu, X } from "lucide-react";
+import { Radio, Users, Heart, Plus, Globe, MapPin, Menu, X, Calendar, Building2 } from "lucide-react";
 import { useBookmarksContext } from "./BookmarksProvider";
 import { AuthButton } from "./AuthButton";
 
@@ -13,14 +13,17 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isCreatorsPage = pathname === "/creators" || pathname.startsWith("/creators/");
   const isChaptersPage = pathname === "/chapters" || pathname.startsWith("/chapters/");
+  const isEventsPage = pathname === "/events" || pathname.startsWith("/events/");
   const isNearYouPage = pathname === "/near-you";
+  const isCompaniesPage = pathname === "/companies";
   const isBookmarksPage = pathname === "/bookmarks";
   const isSubmitPage = pathname === "/submit";
   const { bookmarkCount, isLoaded } = useBookmarksContext();
 
   const navItems = [
-    { href: "/creators", label: "Directory", icon: Users, active: isCreatorsPage },
+    { href: "/creators", label: "Creators", icon: Users, active: isCreatorsPage },
     { href: "/chapters", label: "Chapters", icon: Globe, active: isChaptersPage },
+    { href: "/events", label: "Events", icon: Calendar, active: isEventsPage },
     { href: "/near-you", label: "Near You", icon: MapPin, active: isNearYouPage },
     { href: "/bookmarks", label: "Saved", icon: Heart, active: isBookmarksPage, badge: isLoaded && bookmarkCount > 0 ? bookmarkCount : null },
   ];

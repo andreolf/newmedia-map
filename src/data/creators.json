@@ -7,6 +7,8 @@
     "city": "Buenos Aires",
     "lat": -34.6037,
     "lng": -58.3816,
+    "location_visibility": "CITY",
+    "collab_radius_km": 50,
     "primary_signal": "wallets",
     "signals": ["wallets", "ux", "education"],
     "content_formats": ["video", "threads"],
@@ -21,8 +23,8 @@
     "recommendations": [
       { "name": "Pablo Ortiz", "context": "Lucia's thread on seed phrase security is the best intro I've seen in Spanish." }
     ],
+    "intents": ["collaboration", "local_meetups", "events_workshops"],
     "chapter_ids": ["new-media-americas"],
-    "open_to_local_collab": true,
     "categories": ["Explain"],
     "created_at": "2025-12-15T00:00:00Z"
   },
@@ -34,6 +36,8 @@
     "city": "Lagos",
     "lat": 6.5244,
     "lng": 3.3792,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "privacy",
     "signals": ["privacy", "zk", "education"],
     "content_formats": ["writing", "podcast"],
@@ -49,8 +53,8 @@
       { "name": "Kwame Asante", "context": "Amara's ZK explainers made the concept click for our entire dev team." },
       { "name": "Fatima Hassan", "context": "Essential reading for anyone building privacy-first infra in emerging markets." }
     ],
+    "intents": ["collaboration", "local_meetups", "product_feedback", "mentorship"],
     "chapter_ids": ["new-media-africa"],
-    "open_to_local_collab": true,
     "categories": ["Explain", "Build"],
     "created_at": "2025-12-20T00:00:00Z"
   },
@@ -62,6 +66,8 @@
     "city": "Tokyo",
     "lat": 35.6762,
     "lng": 139.6503,
+    "location_visibility": "CITY",
+    "collab_radius_km": 50,
     "primary_signal": "infra",
     "signals": ["infra", "research", "zk"],
     "content_formats": ["writing", "code"],
@@ -76,8 +82,8 @@
     "recommendations": [
       { "name": "Elena Voronova", "context": "Yuki's diagrams are the gold standard. We use them in our internal docs." }
     ],
+    "intents": ["research_interviews"],
     "chapter_ids": ["new-media-asia"],
-    "open_to_local_collab": false,
     "categories": ["Document", "Explain"],
     "created_at": "2025-11-01T00:00:00Z"
   },
@@ -89,6 +95,8 @@
     "city": "Berlin",
     "lat": 52.52,
     "lng": 13.405,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 75,
     "primary_signal": "security",
     "signals": ["security", "defi", "education"],
     "content_formats": ["video", "threads", "talks"],
@@ -104,8 +112,8 @@
       { "name": "Sarah Chen", "context": "Marcus's post-mortem on the bridge exploit saved us from a similar issue." },
       { "name": "Alex Petrov", "context": "Best security education content in the space, hands down." }
     ],
+    "intents": ["collaboration", "events_workshops", "mentorship"],
     "chapter_ids": ["new-media-europe"],
-    "open_to_local_collab": true,
     "categories": ["Explain", "Critique"],
     "created_at": "2025-10-15T00:00:00Z"
   },
@@ -117,6 +125,8 @@
     "city": "Bangalore",
     "lat": 12.9716,
     "lng": 77.5946,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "aa",
     "signals": ["aa", "wallets", "ux"],
     "content_formats": ["code", "writing", "threads"],
@@ -131,8 +141,8 @@
     "recommendations": [
       { "name": "Raj Patel", "context": "Priya's toolkit cut our integration time from weeks to days." }
     ],
+    "intents": ["collaboration", "local_meetups", "product_feedback"],
     "chapter_ids": ["new-media-asia"],
-    "open_to_local_collab": true,
     "categories": ["Build", "Explain"],
     "created_at": "2025-12-01T00:00:00Z"
   },
@@ -144,6 +154,8 @@
     "city": "Singapore",
     "lat": 1.3521,
     "lng": 103.8198,
+    "location_visibility": "CITY",
+    "collab_radius_km": 50,
     "primary_signal": "defi",
     "signals": ["defi", "research", "security"],
     "content_formats": ["writing", "podcast"],
@@ -156,8 +168,8 @@
       { "type": "article", "title": "AMM Invariant Analysis", "url": "https://arxiv.org/example", "category": "Critique" }
     ],
     "recommendations": [],
+    "intents": ["research_interviews"],
     "chapter_ids": ["new-media-asia"],
-    "open_to_local_collab": false,
     "categories": ["Explain", "Critique"],
     "created_at": "2026-01-02T00:00:00Z"
   },
@@ -169,6 +181,8 @@
     "city": "Mexico City",
     "lat": 19.4326,
     "lng": -99.1332,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "education",
     "signals": ["education", "wallets", "dao"],
     "content_formats": ["video", "podcast", "threads"],
@@ -183,8 +197,8 @@
     "recommendations": [
       { "name": "Carlos Vega", "context": "Sofia's content onboarded more LATAM users than any conference." }
     ],
+    "intents": ["collaboration", "local_meetups", "events_workshops", "mentorship"],
     "chapter_ids": ["new-media-americas"],
-    "open_to_local_collab": true,
     "categories": ["Explain"],
     "created_at": "2025-11-20T00:00:00Z"
   },
@@ -196,6 +210,8 @@
     "city": "Nairobi",
     "lat": -1.2921,
     "lng": 36.8219,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 150,
     "primary_signal": "infra",
     "signals": ["infra", "education", "wallets"],
     "content_formats": ["writing", "code", "talks"],
@@ -210,8 +226,8 @@
     "recommendations": [
       { "name": "Aisha Mwangi", "context": "Kwame's RPC client works where nothing else does." }
     ],
+    "intents": ["collaboration", "local_meetups", "product_feedback"],
     "chapter_ids": ["new-media-africa"],
-    "open_to_local_collab": true,
     "categories": ["Build", "Apply"],
     "created_at": "2025-09-01T00:00:00Z"
   },
@@ -223,6 +239,8 @@
     "city": "Lisbon",
     "lat": 38.7223,
     "lng": -9.1393,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 75,
     "primary_signal": "zk",
     "signals": ["zk", "research", "education"],
     "content_formats": ["writing", "talks", "code"],
@@ -238,8 +256,8 @@
       { "name": "Marcus Schmidt", "context": "Elena's interactive ZK tutorials are how I finally understood SNARKs." },
       { "name": "Chen Wei", "context": "The best bridge between ZK theory and practice." }
     ],
+    "intents": ["events_workshops", "mentorship", "research_interviews"],
     "chapter_ids": ["new-media-europe"],
-    "open_to_local_collab": true,
     "categories": ["Explain", "Build"],
     "created_at": "2025-08-15T00:00:00Z"
   },
@@ -251,6 +269,8 @@
     "city": "Cape Town",
     "lat": -33.9249,
     "lng": 18.4241,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "identity",
     "signals": ["identity", "privacy", "aa"],
     "content_formats": ["writing", "code", "threads"],
@@ -263,8 +283,8 @@
       { "type": "x", "title": "@james_did", "url": "https://x.com/james_did" }
     ],
     "recommendations": [],
+    "intents": ["collaboration", "local_meetups", "product_feedback"],
     "chapter_ids": ["new-media-africa"],
-    "open_to_local_collab": true,
     "categories": ["Build", "Apply"],
     "created_at": "2026-01-05T00:00:00Z"
   },
@@ -276,6 +296,8 @@
     "city": "São Paulo",
     "lat": -23.5505,
     "lng": -46.6333,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "dao",
     "signals": ["dao", "education", "social"],
     "content_formats": ["podcast", "writing", "video"],
@@ -290,8 +312,8 @@
     "recommendations": [
       { "name": "Paulo Nascimento", "context": "Maria's governance playbook helped us avoid classic DAO pitfalls." }
     ],
+    "intents": ["collaboration", "local_meetups", "events_workshops"],
     "chapter_ids": ["new-media-americas"],
-    "open_to_local_collab": true,
     "categories": ["Document", "Explain"],
     "created_at": "2025-10-01T00:00:00Z"
   },
@@ -303,6 +325,8 @@
     "city": "Seoul",
     "lat": 37.5665,
     "lng": 126.978,
+    "location_visibility": "CITY",
+    "collab_radius_km": 50,
     "primary_signal": "gaming",
     "signals": ["gaming", "nft", "ux"],
     "content_formats": ["video", "threads", "code"],
@@ -315,8 +339,8 @@
       { "type": "x", "title": "@alexkim_games", "url": "https://x.com/alexkim_games" }
     ],
     "recommendations": [],
+    "intents": ["product_feedback"],
     "chapter_ids": ["new-media-asia"],
-    "open_to_local_collab": false,
     "categories": ["Build", "Explain"],
     "created_at": "2025-12-28T00:00:00Z"
   },
@@ -328,6 +352,8 @@
     "city": "Toronto",
     "lat": 43.6532,
     "lng": -79.3832,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "aa",
     "signals": ["aa", "security", "ux"],
     "content_formats": ["writing", "code", "talks"],
@@ -342,8 +368,8 @@
     "recommendations": [
       { "name": "Priya Sharma", "context": "Sarah's security patterns document should be required reading." }
     ],
+    "intents": ["collaboration", "events_workshops", "mentorship"],
     "chapter_ids": ["new-media-americas"],
-    "open_to_local_collab": true,
     "categories": ["Build", "Explain"],
     "created_at": "2025-07-01T00:00:00Z"
   },
@@ -355,6 +381,8 @@
     "city": "Amsterdam",
     "lat": 52.3676,
     "lng": 4.9041,
+    "location_visibility": "COUNTRY",
+    "collab_radius_km": 50,
     "primary_signal": "privacy",
     "signals": ["privacy", "zk", "research"],
     "content_formats": ["writing", "podcast", "code"],
@@ -369,8 +397,8 @@
     "recommendations": [
       { "name": "Amara Okafor", "context": "Thomas's mixnet research influenced our entire privacy architecture." }
     ],
+    "intents": ["research_interviews"],
     "chapter_ids": ["new-media-europe"],
-    "open_to_local_collab": false,
     "categories": ["Build", "Critique"],
     "created_at": "2025-06-15T00:00:00Z"
   },
@@ -382,6 +410,8 @@
     "city": "Paris",
     "lat": 48.8566,
     "lng": 2.3522,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 75,
     "primary_signal": "ux",
     "signals": ["ux", "wallets", "education"],
     "content_formats": ["writing", "video", "threads"],
@@ -396,8 +426,8 @@
     "recommendations": [
       { "name": "Lucia Mendez", "context": "Anna's UX patterns transformed how we think about onboarding." }
     ],
+    "intents": ["collaboration", "local_meetups", "product_feedback"],
     "chapter_ids": ["new-media-europe"],
-    "open_to_local_collab": true,
     "categories": ["Explain", "Critique"],
     "created_at": "2025-11-10T00:00:00Z"
   },
@@ -409,6 +439,8 @@
     "city": "Ho Chi Minh City",
     "lat": 10.8231,
     "lng": 106.6297,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "defi",
     "signals": ["defi", "infra", "education"],
     "content_formats": ["code", "writing", "video"],
@@ -421,8 +453,8 @@
       { "type": "article", "title": "Cross-Chain SEA", "url": "https://mirror.xyz/example", "category": "Apply" }
     ],
     "recommendations": [],
+    "intents": ["collaboration", "local_meetups", "product_feedback"],
     "chapter_ids": ["new-media-asia"],
-    "open_to_local_collab": true,
     "categories": ["Build", "Apply"],
     "created_at": "2026-01-03T00:00:00Z"
   },
@@ -434,6 +466,8 @@
     "city": "Barcelona",
     "lat": 41.3851,
     "lng": 2.1734,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "nft",
     "signals": ["nft", "social", "education"],
     "content_formats": ["podcast", "writing", "video"],
@@ -448,8 +482,8 @@
     "recommendations": [
       { "name": "Marco Bianchi", "context": "Isabella's analysis of creator royalties changed industry discourse." }
     ],
+    "intents": ["collaboration", "events_workshops", "research_interviews"],
     "chapter_ids": ["new-media-europe"],
-    "open_to_local_collab": true,
     "categories": ["Document", "Critique"],
     "created_at": "2025-09-20T00:00:00Z"
   },
@@ -461,6 +495,8 @@
     "city": "Austin",
     "lat": 30.2672,
     "lng": -97.7431,
+    "location_visibility": "CITY",
+    "collab_radius_km": 50,
     "primary_signal": "aa",
     "signals": ["aa", "wallets", "security"],
     "content_formats": ["code", "threads", "talks"],
@@ -476,8 +512,8 @@
       { "name": "Sarah Chen", "context": "Michael's AA utils are production-tested and well-maintained." },
       { "name": "Priya Sharma", "context": "Clear code, clear docs, responsive maintainer. The trifecta." }
     ],
+    "intents": ["events_workshops"],
     "chapter_ids": ["new-media-americas"],
-    "open_to_local_collab": false,
     "categories": ["Build", "Explain"],
     "created_at": "2025-05-01T00:00:00Z"
   },
@@ -489,6 +525,8 @@
     "city": "London",
     "lat": 51.5074,
     "lng": -0.1278,
+    "location_visibility": "CITY",
+    "collab_radius_km": 50,
     "primary_signal": "research",
     "signals": ["research", "defi", "security"],
     "content_formats": ["writing", "podcast", "talks"],
@@ -503,8 +541,8 @@
     "recommendations": [
       { "name": "Chen Wei", "context": "Fatima's risk framework is now cited in regulatory discussions." }
     ],
+    "intents": ["research_interviews"],
     "chapter_ids": ["new-media-europe"],
-    "open_to_local_collab": false,
     "categories": ["Critique", "Explain"],
     "created_at": "2025-04-15T00:00:00Z"
   },
@@ -516,6 +554,8 @@
     "city": "Melbourne",
     "lat": -37.8136,
     "lng": 144.9631,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "infra",
     "signals": ["infra", "defi", "aa"],
     "content_formats": ["code", "writing", "video"],
@@ -530,8 +570,8 @@
     "recommendations": [
       { "name": "David Nguyen", "context": "Raj's deployment tooling saved us weeks of integration work." }
     ],
+    "intents": ["collaboration", "local_meetups", "product_feedback"],
     "chapter_ids": ["new-media-asia"],
-    "open_to_local_collab": true,
     "categories": ["Build", "Explain"],
     "created_at": "2025-12-10T00:00:00Z"
   },
@@ -543,6 +583,8 @@
     "city": "Dubai",
     "lat": 25.2048,
     "lng": 55.2708,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "defi",
     "signals": ["defi", "education", "wallets"],
     "content_formats": ["video", "podcast", "threads"],
@@ -557,8 +599,8 @@
     "recommendations": [
       { "name": "Layla Ahmed", "context": "Omar's content is the go-to resource for Arabic-speaking DeFi newcomers." }
     ],
+    "intents": ["collaboration", "local_meetups", "events_workshops", "mentorship"],
     "chapter_ids": ["new-media-mena"],
-    "open_to_local_collab": true,
     "categories": ["Explain", "Document"],
     "created_at": "2025-12-05T00:00:00Z"
   },
@@ -570,6 +612,8 @@
     "city": "Cairo",
     "lat": 30.0444,
     "lng": 31.2357,
+    "location_visibility": "NEAR_ME",
+    "collab_radius_km": 100,
     "primary_signal": "education",
     "signals": ["education", "wallets", "privacy"],
     "content_formats": ["writing", "video", "threads"],
@@ -582,8 +626,8 @@
       { "type": "x", "title": "@layla_crypto", "url": "https://x.com/layla_crypto" }
     ],
     "recommendations": [],
+    "intents": ["collaboration", "local_meetups", "mentorship"],
     "chapter_ids": ["new-media-mena"],
-    "open_to_local_collab": true,
     "categories": ["Explain"],
     "created_at": "2026-01-06T00:00:00Z"
   }

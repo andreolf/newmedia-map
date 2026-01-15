@@ -1,0 +1,63 @@
+[
+  {
+    "id": "eth-denver-2026",
+    "name": "ETH Denver 2026",
+    "slug": "eth-denver-2026",
+    "description": "The largest Ethereum event in the world. Builders, educators, and creators come together in Denver.",
+    "location_city": "Denver",
+    "location_country": "USA",
+    "start_date": "2026-02-28",
+    "end_date": "2026-03-02",
+    "event_type": "conference",
+    "chapter_id": "new-media-americas",
+    "website_url": "https://ethdenver.com",
+    "created_at": "2025-12-01T00:00:00Z"
+  },
+  {
+    "id": "web3-lagos-builder-night",
+    "name": "Web3 Lagos Builder Night",
+    "slug": "web3-lagos-builder-night",
+    "description": "A monthly gathering for Web3 builders in Lagos. Demo your project, get feedback, and connect with local devs.",
+    "location_city": "Lagos",
+    "location_country": "Nigeria",
+    "start_date": "2026-01-25",
+    "event_type": "builder_night",
+    "chapter_id": "new-media-africa",
+    "created_at": "2026-01-05T00:00:00Z"
+  },
+  {
+    "id": "zk-workshop-lisbon",
+    "name": "ZK Workshop Lisbon",
+    "slug": "zk-workshop-lisbon",
+    "description": "Hands-on workshop covering circom basics, proving systems, and real-world ZK applications. Led by Elena Voronova.",
+    "location_city": "Lisbon",
+    "location_country": "Portugal",
+    "start_date": "2026-02-15",
+    "event_type": "workshop",
+    "chapter_id": "new-media-europe",
+    "created_at": "2026-01-10T00:00:00Z"
+  },
+  {
+    "id": "defi-deep-dive-online",
+    "name": "DeFi Deep Dive: MEV & Sequencers",
+    "slug": "defi-deep-dive-online",
+    "description": "Online workshop exploring MEV, sequencer economics, and their impact on DeFi protocols. Open to all.",
+    "start_date": "2026-02-01",
+    "event_type": "online",
+    "website_url": "https://example.com/defi-deep-dive",
+    "created_at": "2026-01-08T00:00:00Z"
+  },
+  {
+    "id": "aa-hackathon-singapore",
+    "name": "AA Hackathon Singapore",
+    "slug": "aa-hackathon-singapore",
+    "description": "48-hour hackathon focused on account abstraction use cases. Build smart wallets, session keys, and more.",
+    "location_city": "Singapore",
+    "location_country": "Singapore",
+    "start_date": "2026-03-15",
+    "end_date": "2026-03-17",
+    "event_type": "workshop",
+    "chapter_id": "new-media-asia",
+    "created_at": "2026-01-12T00:00:00Z"
+  }
+]

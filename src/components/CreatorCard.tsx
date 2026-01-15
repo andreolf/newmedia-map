@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Creator } from "@/types";
+import { Creator, INTENT_LABELS, CreatorIntent } from "@/types";
 import { Avatar } from "./Avatar";
 import { TagChip } from "./TagChip";
 import { ArtifactIconRow } from "./ArtifactIconRow";
 import { BookmarkButton } from "./BookmarkButton";
-import { getSurfaceReason, formatSurfaceReason } from "@/lib/chapters";
-import { MapPin, Sparkles } from "lucide-react";
+import { getSurfaceReason, formatSurfaceReason, getDisplayLocation } from "@/lib/chapters";
+import { MapPin, Sparkles, Users, MessageSquare } from "lucide-react";
 
 interface CreatorCardProps {
   creator: Creator;
@@ -15,6 +15,19 @@ interface CreatorCardProps {
   chapterId?: string;
   userLocation?: { lat: number; lng: number };
   showWhySurfaced?: boolean;
+}
+
+// Get short intent labels
+function getIntentShortLabel(intent: CreatorIntent): string {
+  const shortLabels: Record<CreatorIntent, string> = {
+    collaboration: "Collab",
+    local_meetups: "Meetups",
+    events_workshops: "Events",
+    product_feedback: "Feedback",
+    research_interviews: "Research",
+    mentorship: "Mentor",
+  };
+  return shortLabels[intent] || intent;
 }
 
 export function CreatorCard({
@@ -31,6 +44,9 @@ export function CreatorCard({
         userLng: userLocation?.lng,
       })
     : null;
+
+  const displayLocation = getDisplayLocation(creator);
+  const hasIntents = creator.intents && creator.intents.length > 0;
 
   if (compact) {
     return (
@@ -53,15 +69,16 @@ export function CreatorCard({
                   <BookmarkButton creatorId={creator.id} size="sm" />
                 </div>
                 <div className="flex items-center gap-2 text-sm text-[--muted-foreground] mt-0.5">
-                  <span className="font-medium text-[#00ff88]">
-                    {creator.primary_signal}
-                  </span>
-                  <span>•</span>
-                  <span className="flex items-center gap-1">
-                    <MapPin size={12} />
-                    {creator.city ? `${creator.city}, ` : ""}
-                    {creator.country}
-                  </span>
+                  <span className="font-medium text-[#00ff88]">{creator.primary_signal}</span>
+                  {displayLocation && (
+                    <>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        <MapPin size={12} />
+                        {displayLocation}
+                      </span>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -77,9 +94,24 @@ export function CreatorCard({
               {creator.editorial_reason}
             </p>
 
+            {/* Intents row */}
+            {hasIntents && (
+              <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+                <Users size={12} className="text-[#6366f1]" />
+                {creator.intents.slice(0, 3).map((intent) => (
+                  <span
+                    key={intent}
+                    className="px-2 py-0.5 text-[10px] font-medium bg-[#6366f1]/10 text-[#6366f1] rounded-full"
+                  >
+                    {getIntentShortLabel(intent)}
+                  </span>
+                ))}
+              </div>
+            )}
+
             {/* Why surfaced */}
             {surfaceReason && (
-              <div className="flex items-center gap-1.5 mt-2 text-xs text-[#6366f1]">
+              <div className="flex items-center gap-1.5 mt-2 text-xs text-[#00ff88]">
                 <Sparkles size={12} />
                 <span>{formatSurfaceReason(surfaceReason)}</span>
               </div>
@@ -114,21 +146,40 @@ export function CreatorCard({
               <BookmarkButton creatorId={creator.id} size="sm" />
             </div>
 
-            <div className="flex items-center gap-1 text-[--muted-foreground] text-sm mt-0.5">
-              <MapPin size={12} />
-              <span>
-                {creator.city ? `${creator.city}, ` : ""}
-                {creator.country}
-              </span>
-            </div>
+            {displayLocation && (
+              <div className="flex items-center gap-1 text-[--muted-foreground] text-sm mt-0.5">
+                <MapPin size={12} />
+                <span>{displayLocation}</span>
+              </div>
+            )}
 
             <p className="text-[--muted-foreground] text-sm mt-2 line-clamp-2">
               {creator.editorial_reason}
             </p>
 
+            {/* Intents row */}
+            {hasIntents && (
+              <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+                <MessageSquare size={12} className="text-[#6366f1]" />
+                {creator.intents.slice(0, 2).map((intent) => (
+                  <span
+                    key={intent}
+                    className="px-2 py-0.5 text-[10px] font-medium bg-[#6366f1]/10 text-[#6366f1] rounded-full"
+                  >
+                    {getIntentShortLabel(intent)}
+                  </span>
+                ))}
+                {creator.intents.length > 2 && (
+                  <span className="text-[10px] text-[--muted-foreground]">
+                    +{creator.intents.length - 2}
+                  </span>
+                )}
+              </div>
+            )}
+
             {/* Why surfaced */}
             {surfaceReason && (
-              <div className="flex items-center gap-1.5 mt-2 text-xs text-[#6366f1]">
+              <div className="flex items-center gap-1.5 mt-2 text-xs text-[#00ff88]">
                 <Sparkles size={12} />
                 <span>{formatSurfaceReason(surfaceReason)}</span>
               </div>
