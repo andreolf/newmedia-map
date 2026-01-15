@@ -73,7 +73,8 @@ export default function NearYouPage() {
           setError(
             "Could not detect your location. Choose a city or enable location access."
           );
-        }
+        },
+        { timeout: 5000, maximumAge: 60000 } // 5 second timeout
       );
     } else {
       setLocation(MAJOR_CITIES[0]);
