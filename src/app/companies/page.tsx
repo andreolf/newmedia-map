@@ -20,7 +20,7 @@ import {
   Globe,
   Gift,
   Shield,
-  AlertCircle,
+  Handshake,
 } from "lucide-react";
 
 const INTENT_OPTIONS: { value: CreatorIntent; label: string }[] = [
@@ -33,6 +33,7 @@ const INTENT_OPTIONS: { value: CreatorIntent; label: string }[] = [
 
 export default function CompaniesPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [wantMatchmaking, setWantMatchmaking] = useState(false);
   const [formData, setFormData] = useState({
     companyName: "",
     contactEmail: "",
@@ -42,12 +43,13 @@ export default function CompaniesPage() {
     intentFocus: [] as CreatorIntent[],
     whatCreatorsGet: "",
     optionalSupport: "",
+    additionalNotes: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In production, this would submit to an API
-    console.log("Company Brief submission:", formData);
+    console.log("Company Brief submission:", { ...formData, wantMatchmaking });
     setFormSubmitted(true);
   };
 
@@ -195,6 +197,7 @@ export default function CompaniesPage() {
               <button
                 onClick={() => {
                   setFormSubmitted(false);
+                  setWantMatchmaking(false);
                   setFormData({
                     companyName: "",
                     contactEmail: "",
@@ -204,6 +207,7 @@ export default function CompaniesPage() {
                     intentFocus: [],
                     whatCreatorsGet: "",
                     optionalSupport: "",
+                    additionalNotes: "",
                   });
                 }}
                 className="text-[#00ff88] font-medium hover:underline"
@@ -258,10 +262,36 @@ export default function CompaniesPage() {
                 />
               </div>
 
-              {/* Region */}
+              {/* Matchmaking toggle - prominent option */}
+              <div className="p-5 bg-[#6366f1]/10 border border-[#6366f1]/30 rounded-xl">
+                <label className="flex items-start gap-4 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={wantMatchmaking}
+                    onChange={(e) => setWantMatchmaking(e.target.checked)}
+                    className="mt-1 w-5 h-5 rounded border-[--border] text-[#6366f1] focus:ring-[#6366f1] cursor-pointer"
+                  />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Handshake size={18} className="text-[#6366f1]" />
+                      <span className="font-semibold text-[--foreground]">
+                        Let us find creators for you
+                      </span>
+                    </div>
+                    <p className="text-sm text-[--muted-foreground]">
+                      Don&apos;t have time to browse? Our curators will match you with relevant
+                      creators based on your brief. We&apos;ll reach out with personalized
+                      recommendations.
+                    </p>
+                  </div>
+                </label>
+              </div>
+
+              {/* Region - optional */}
               <div>
                 <label className="block text-sm font-medium text-[--foreground] mb-2">
                   Region or chapter focus
+                  <span className="text-[--muted-foreground] font-normal ml-2">(optional)</span>
                 </label>
                 <select
                   value={formData.regionFocus}
@@ -277,10 +307,16 @@ export default function CompaniesPage() {
                 </select>
               </div>
 
-              {/* Category Focus */}
+              {/* Category Focus - optional when matchmaking */}
               <div>
                 <label className="block text-sm font-medium text-[--foreground] mb-2">
-                  What type of creators? *
+                  What type of creators?
+                  {!wantMatchmaking && (
+                    <span className="text-[--muted-foreground] font-normal ml-2">(select at least one, or enable matchmaking)</span>
+                  )}
+                  {wantMatchmaking && (
+                    <span className="text-[--muted-foreground] font-normal ml-2">(optional - we&apos;ll help you decide)</span>
+                  )}
                 </label>
                 <p className="text-xs text-[--muted-foreground] mb-3">
                   Select categories based on what creators do, not their follower count
@@ -304,10 +340,11 @@ export default function CompaniesPage() {
                 </div>
               </div>
 
-              {/* Intent Focus */}
+              {/* Intent Focus - optional */}
               <div>
                 <label className="block text-sm font-medium text-[--foreground] mb-2">
                   What kind of engagement?
+                  <span className="text-[--muted-foreground] font-normal ml-2">(optional)</span>
                 </label>
                 <p className="text-xs text-[--muted-foreground] mb-3">
                   Select what you&apos;re looking for from creators
@@ -330,16 +367,16 @@ export default function CompaniesPage() {
                 </div>
               </div>
 
-              {/* What creators get */}
+              {/* What creators get - optional */}
               <div>
                 <label className="block text-sm font-medium text-[--foreground] mb-2">
-                  What do creators get? *
+                  What do creators get?
+                  <span className="text-[--muted-foreground] font-normal ml-2">(optional)</span>
                 </label>
                 <p className="text-xs text-[--muted-foreground] mb-3">
                   Focus on access, learning, mentorship, early roadmap—not compensation
                 </p>
                 <textarea
-                  required
                   value={formData.whatCreatorsGet}
                   onChange={(e) => setFormData({ ...formData, whatCreatorsGet: e.target.value })}
                   rows={3}
@@ -351,11 +388,11 @@ export default function CompaniesPage() {
               {/* Optional support */}
               <div>
                 <label className="block text-sm font-medium text-[--foreground] mb-2">
-                  Optional support (if any)
+                  Optional support
+                  <span className="text-[--muted-foreground] font-normal ml-2">(if any)</span>
                 </label>
                 <p className="text-xs text-[--muted-foreground] mb-3">
-                  Not required—many creators participate for access alone. Don&apos;t make this
-                  the headline.
+                  Not required—many creators participate for access alone.
                 </p>
                 <input
                   type="text"
@@ -366,19 +403,34 @@ export default function CompaniesPage() {
                 />
               </div>
 
+              {/* Anything else - freeform for matchmaking */}
+              <div>
+                <label className="block text-sm font-medium text-[--foreground] mb-2">
+                  Anything else we should know?
+                  <span className="text-[--muted-foreground] font-normal ml-2">(optional)</span>
+                </label>
+                <textarea
+                  value={formData.additionalNotes}
+                  onChange={(e) => setFormData({ ...formData, additionalNotes: e.target.value })}
+                  rows={2}
+                  placeholder="Timeline, specific verticals, languages, anything that helps us understand your needs..."
+                  className="w-full px-4 py-3 border border-[--border] rounded-lg bg-[--background] text-[--foreground] focus:ring-2 focus:ring-[#00ff88] focus:border-transparent placeholder:text-[--muted-foreground]"
+                />
+              </div>
+
               {/* Submit */}
               <div className="pt-4">
                 <button
                   type="submit"
-                  disabled={formData.categoryFocus.length === 0}
+                  disabled={!wantMatchmaking && formData.categoryFocus.length === 0}
                   className="flex items-center justify-center gap-2 w-full md:w-auto px-8 py-4 bg-[#00ff88] text-black rounded-xl font-bold hover:bg-[#00ff88]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send size={18} />
-                  Submit brief
+                  {wantMatchmaking ? "Request matchmaking" : "Submit brief"}
                 </button>
-                {formData.categoryFocus.length === 0 && (
+                {!wantMatchmaking && formData.categoryFocus.length === 0 && (
                   <p className="text-xs text-[#ff3366] mt-2">
-                    Please select at least one category focus
+                    Select at least one category, or enable &quot;Let us find creators for you&quot;
                   </p>
                 )}
               </div>

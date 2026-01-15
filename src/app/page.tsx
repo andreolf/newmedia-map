@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Users, Sparkles, Globe, FileCheck, MapPin, Zap, Radio } from "lucide-react";
+import { ArrowRight, Users, Sparkles, Globe, FileCheck, MapPin, Zap, Radio, Building2 } from "lucide-react";
 import { chapters, creators, getRegionEmoji } from "@/lib/chapters";
 import { CreatorCard } from "@/components/CreatorCard";
 
@@ -34,6 +34,18 @@ export default function HomePage() {
         <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#ff3366] rounded-full blur-[100px] opacity-10 animate-pulse-glow" style={{ animationDelay: '1s' }} />
 
         <div className="relative max-w-6xl mx-auto px-6 py-20 sm:py-28 w-full">
+          {/* For Companies floating link */}
+          <div className="absolute top-4 right-0 hidden sm:block">
+            <Link
+              href="/companies"
+              className="group flex items-center gap-2 px-4 py-2 bg-[--card]/80 backdrop-blur border border-[--border] rounded-full text-sm text-[--muted-foreground] hover:text-[--foreground] hover:border-[#6366f1]/50 transition-all"
+            >
+              <Building2 size={14} />
+              <span>For Companies</span>
+              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+
           <div className="text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[--card] border border-[--border] rounded-full text-sm text-[--muted-foreground] mb-8 backdrop-blur">
