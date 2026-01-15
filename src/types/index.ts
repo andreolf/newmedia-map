@@ -126,7 +126,7 @@ export interface Creator {
   id: string;
   name: string;
   avatar_url: string | null;
-  
+
   // Location (stored privately, displayed per visibility)
   country: string;
   city: string | null;
@@ -134,7 +134,7 @@ export interface Creator {
   lng: number | null;
   location_visibility: LocationVisibility;
   collab_radius_km: number; // Default 50, for near-me matching
-  
+
   // Signals & content
   primary_signal: string;
   signals: string[];
@@ -144,20 +144,20 @@ export interface Creator {
   editorial_reason: string;
   artifacts: Artifact[];
   recommendations: Recommendation[];
-  
+
   // Intents (what creator is open to)
   intents: CreatorIntent[];
-  
+
   // Chapter associations
   chapter_ids?: string[];
   chapter_context?: Record<string, string>; // chapter_id -> context_line
-  
+
   // Categories (proof of work type)
   categories?: CreatorCategory[];
-  
+
   // Events
   attending_event_ids?: string[];
-  
+
   // Timestamps
   created_at?: string;
   updated_at?: string;

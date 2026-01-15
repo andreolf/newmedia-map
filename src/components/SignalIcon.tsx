@@ -77,14 +77,16 @@ export function SignalIcon({ signal, selected = false, onClick, size = "md" }: S
     <button
       onClick={onClick}
       className={cn(
-        "flex flex-col items-center justify-center rounded-xl transition-all flex-shrink-0",
+        "flex flex-col items-center justify-center rounded-xl transition-all flex-shrink-0 border-2",
         sizeClasses,
-        !selected && "hover:bg-[--muted] text-[--muted-foreground]"
+        selected 
+          ? "border-current" 
+          : "border-transparent hover:bg-[--muted] text-[--muted-foreground]"
       )}
       style={{
-        backgroundColor: selected ? `${color}20` : undefined,
+        backgroundColor: selected ? `${color}15` : undefined,
         color: selected ? color : undefined,
-        boxShadow: selected ? `0 0 0 2px ${color}, 0 0 20px ${color}30` : undefined,
+        borderColor: selected ? color : undefined,
       }}
       title={label}
     >
