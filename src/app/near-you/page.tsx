@@ -85,7 +85,7 @@ export default function NearYouPage() {
   const nearbyCreators = useMemo(() => {
     if (!location) return [];
     return getCreatorsNearLocation(location.lat, location.lng, radius, {
-      openToCollab: openToCollabOnly || undefined,
+      intents: openToCollabOnly ? ["local_meetups"] : undefined,
       categories: selectedCategories.length ? selectedCategories : undefined,
       chapterId: selectedChapter || undefined,
     });
