@@ -26,6 +26,7 @@
     "intents": ["collaboration", "local_meetups", "events_workshops"],
     "chapter_ids": ["new-media-americas"],
     "categories": ["Explain"],
+    "attending_event_ids": ["eth-denver-2026"],
     "created_at": "2025-12-15T00:00:00Z"
   },
   {
@@ -56,6 +57,7 @@
     "intents": ["collaboration", "local_meetups", "product_feedback", "mentorship"],
     "chapter_ids": ["new-media-africa"],
     "categories": ["Explain", "Build"],
+    "attending_event_ids": ["web3-lagos-builder-night"],
     "created_at": "2025-12-20T00:00:00Z"
   },
   {
@@ -171,6 +173,7 @@
     "intents": ["research_interviews"],
     "chapter_ids": ["new-media-asia"],
     "categories": ["Explain", "Critique"],
+    "attending_event_ids": ["aa-hackathon-singapore"],
     "created_at": "2026-01-02T00:00:00Z"
   },
   {
@@ -259,6 +262,7 @@
     "intents": ["events_workshops", "mentorship", "research_interviews"],
     "chapter_ids": ["new-media-europe"],
     "categories": ["Explain", "Build"],
+    "attending_event_ids": ["zk-workshop-lisbon", "eth-denver-2026"],
     "created_at": "2025-08-15T00:00:00Z"
   },
   {

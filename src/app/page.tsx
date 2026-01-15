@@ -22,7 +22,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-[--background] relative">
       {/* Grain overlay */}
       <div className="grain" />
-      
+
       {/* Mesh gradient background */}
       <div className="fixed inset-0 mesh-gradient pointer-events-none" />
 
@@ -195,7 +195,7 @@ export default function HomePage() {
           <div className="relative overflow-hidden gradient-border p-10 sm:p-14 text-center">
             {/* Background glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#ff3366] rounded-full blur-[150px] opacity-20" />
-            
+
             <div className="relative">
               <div className="w-16 h-16 mx-auto mb-6 bg-[#ff3366]/20 border border-[#ff3366]/30 rounded-2xl flex items-center justify-center">
                 <Zap size={28} className="text-[#ff3366]" />

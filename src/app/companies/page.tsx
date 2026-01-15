@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
-import { chapters } from "@/lib/chapters";
+import { chapters, events, getCreatorsAttendingEvent } from "@/lib/chapters";
 import {
   CATEGORY_DESCRIPTIONS,
   CreatorCategory,
   CreatorIntent,
-  INTENT_LABELS,
+  EVENT_TYPE_LABELS,
 } from "@/types";
 import {
   Building2,
@@ -21,7 +21,21 @@ import {
   Gift,
   Shield,
   Handshake,
+  Calendar,
+  MapPin,
 } from "lucide-react";
+
+// Get upcoming events with attending creator count
+function getUpcomingEventsWithAttendees() {
+  const now = new Date();
+  return events
+    .filter((e) => new Date(e.start_date) >= now)
+    .sort((a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime())
+    .map((event) => ({
+      ...event,
+      attendingCount: getCreatorsAttendingEvent(event.id).length,
+    }));
+}
 
 const INTENT_OPTIONS: { value: CreatorIntent; label: string }[] = [
   { value: "collaboration", label: "Open to collaboration" },
@@ -34,11 +48,13 @@ const INTENT_OPTIONS: { value: CreatorIntent; label: string }[] = [
 export default function CompaniesPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [wantMatchmaking, setWantMatchmaking] = useState(false);
+  const upcomingEvents = getUpcomingEventsWithAttendees();
   const [formData, setFormData] = useState({
     companyName: "",
     contactEmail: "",
     whatBuilding: "",
     regionFocus: "",
+    eventFocus: "", // Which event they want to connect creators at
     categoryFocus: [] as CreatorCategory[],
     intentFocus: [] as CreatorIntent[],
     whatCreatorsGet: "",
@@ -140,6 +156,75 @@ export default function CompaniesPage() {
           </div>
         </div>
 
+        {/* Upcoming Events - Find creators at conferences */}
+        {upcomingEvents.length > 0 && (
+          <section className="mb-16">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-semibold text-[--foreground]">
+                  <Calendar size={24} className="inline mr-2" />
+                  Creators at upcoming events
+                </h2>
+                <p className="text-sm text-[--muted-foreground] mt-1">
+                  See which creators will be at conferences and meetups
+                </p>
+              </div>
+              <Link
+                href="/events"
+                className="text-sm text-[#00ff88] hover:underline flex items-center gap-1"
+              >
+                All events <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {upcomingEvents.slice(0, 6).map((event) => (
+                <Link
+                  key={event.id}
+                  href={`/events/${event.slug}`}
+                  className="group bg-[--card] rounded-xl border border-[--border] p-5 hover:border-[#6366f1]/50 transition-all"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <span
+                      className={`text-xs font-bold uppercase tracking-wide px-2 py-1 rounded ${
+                        event.event_type === "conference"
+                          ? "bg-[#6366f1]/10 text-[#6366f1]"
+                          : event.event_type === "workshop"
+                            ? "bg-[#00ff88]/10 text-[#00ff88]"
+                            : "bg-[--muted] text-[--muted-foreground]"
+                      }`}
+                    >
+                      {EVENT_TYPE_LABELS[event.event_type]}
+                    </span>
+                    {event.attendingCount > 0 && (
+                      <span className="flex items-center gap-1 text-sm font-medium text-[#00ff88]">
+                        <Users size={14} />
+                        {event.attendingCount}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-semibold text-[--foreground] group-hover:text-[#6366f1] transition-colors mb-2">
+                    {event.name}
+                  </h3>
+                  <div className="flex items-center gap-2 text-sm text-[--muted-foreground]">
+                    <Calendar size={14} />
+                    {new Date(event.start_date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                    })}
+                    {event.location_city && (
+                      <>
+                        <span className="text-[--border]">•</span>
+                        <MapPin size={14} />
+                        {event.location_city}
+                      </>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Chapters Browse */}
         <section className="mb-16">
           <h2 className="text-2xl font-semibold text-[--foreground] mb-6">Browse by chapter</h2>
@@ -154,12 +239,12 @@ export default function CompaniesPage() {
                   {chapter.region === "Africa"
                     ? "🌍"
                     : chapter.region === "Europe"
-                    ? "🌍"
-                    : chapter.region === "Americas"
-                    ? "🌎"
-                    : chapter.region === "Asia"
-                    ? "🌏"
-                    : "🌍"}
+                      ? "🌍"
+                      : chapter.region === "Americas"
+                        ? "🌎"
+                        : chapter.region === "Asia"
+                          ? "🌏"
+                          : "🌍"}
                 </span>
                 <span className="text-sm font-medium text-[--foreground] group-hover:text-[#00ff88]">
                   {chapter.region}
@@ -203,6 +288,7 @@ export default function CompaniesPage() {
                     contactEmail: "",
                     whatBuilding: "",
                     regionFocus: "",
+                    eventFocus: "",
                     categoryFocus: [],
                     intentFocus: [],
                     whatCreatorsGet: "",
@@ -288,23 +374,49 @@ export default function CompaniesPage() {
               </div>
 
               {/* Region - optional */}
-              <div>
-                <label className="block text-sm font-medium text-[--foreground] mb-2">
-                  Region or chapter focus
-                  <span className="text-[--muted-foreground] font-normal ml-2">(optional)</span>
-                </label>
-                <select
-                  value={formData.regionFocus}
-                  onChange={(e) => setFormData({ ...formData, regionFocus: e.target.value })}
-                  className="w-full px-4 py-3 border border-[--border] rounded-lg bg-[--background] text-[--foreground] focus:ring-2 focus:ring-[#00ff88]"
-                >
-                  <option value="">All regions (global)</option>
-                  {chapters.map((ch) => (
-                    <option key={ch.id} value={ch.id}>
-                      {ch.name}
-                    </option>
-                  ))}
-                </select>
+              {/* Region and Event in a grid */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-[--foreground] mb-2">
+                    Region focus
+                    <span className="text-[--muted-foreground] font-normal ml-2">(optional)</span>
+                  </label>
+                  <select
+                    value={formData.regionFocus}
+                    onChange={(e) => setFormData({ ...formData, regionFocus: e.target.value })}
+                    className="w-full px-4 py-3 border border-[--border] rounded-lg bg-[--background] text-[--foreground] focus:ring-2 focus:ring-[#00ff88]"
+                  >
+                    <option value="">All regions (global)</option>
+                    {chapters.map((ch) => (
+                      <option key={ch.id} value={ch.id}>
+                        {ch.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[--foreground] mb-2">
+                    <Calendar size={14} className="inline mr-1" />
+                    Event focus
+                    <span className="text-[--muted-foreground] font-normal ml-2">(optional)</span>
+                  </label>
+                  <p className="text-xs text-[--muted-foreground] mb-2">
+                    Connect with creators attending a specific conference
+                  </p>
+                  <select
+                    value={formData.eventFocus}
+                    onChange={(e) => setFormData({ ...formData, eventFocus: e.target.value })}
+                    className="w-full px-4 py-3 border border-[--border] rounded-lg bg-[--background] text-[--foreground] focus:ring-2 focus:ring-[#6366f1]"
+                  >
+                    <option value="">No specific event</option>
+                    {upcomingEvents.map((ev) => (
+                      <option key={ev.id} value={ev.id}>
+                        {ev.name} ({new Date(ev.start_date).toLocaleDateString("en-US", { month: "short", day: "numeric" })})
+                        {ev.attendingCount > 0 ? ` - ${ev.attendingCount} creators` : ""}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               {/* Category Focus - optional when matchmaking */}
@@ -327,11 +439,10 @@ export default function CompaniesPage() {
                       key={cat}
                       type="button"
                       onClick={() => toggleCategory(cat)}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                        formData.categoryFocus.includes(cat)
+                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${formData.categoryFocus.includes(cat)
                           ? "bg-[#00ff88] text-black"
                           : "bg-[--muted] text-[--muted-foreground] hover:text-[--foreground]"
-                      }`}
+                        }`}
                       title={CATEGORY_DESCRIPTIONS[cat]}
                     >
                       {cat}
@@ -355,11 +466,10 @@ export default function CompaniesPage() {
                       key={intent.value}
                       type="button"
                       onClick={() => toggleIntent(intent.value)}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                        formData.intentFocus.includes(intent.value)
+                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${formData.intentFocus.includes(intent.value)
                           ? "bg-[#6366f1] text-white"
                           : "bg-[--muted] text-[--muted-foreground] hover:text-[--foreground]"
-                      }`}
+                        }`}
                     >
                       {intent.label}
                     </button>
