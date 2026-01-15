@@ -25,6 +25,7 @@ export function Header() {
     { href: "/creators", label: "Creators", icon: Users, active: isCreatorsPage },
     { href: "/chapters", label: "Chapters", icon: Globe, active: isChaptersPage },
     { href: "/events", label: "Events", icon: Calendar, active: isEventsPage },
+    { href: "/companies", label: "Companies", icon: Building2, active: isCompaniesPage },
     { href: "/near-you", label: "Near You", icon: MapPin, active: isNearYouPage },
     { href: "/bookmarks", label: "Saved", icon: Heart, active: isBookmarksPage, badge: isLoaded && bookmarkCount > 0 ? bookmarkCount : null },
   ];
