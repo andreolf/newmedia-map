@@ -17,6 +17,7 @@ const syne = Syne({
   display: "swap",
 });
 
+// Force redeploy: 2026-01-15T20:08
 export const metadata: Metadata = {
   title: "New Media Map | Discover Emerging Web3 Voices",
   description:
