@@ -40,10 +40,10 @@ export function CreatorCard({
 }: CreatorCardProps) {
   const surfaceReason = showWhySurfaced
     ? getSurfaceReason(creator, {
-        chapterId,
-        userLat: userLocation?.lat,
-        userLng: userLocation?.lng,
-      })
+      chapterId,
+      userLat: userLocation?.lat,
+      userLng: userLocation?.lng,
+    })
     : null;
 
   const displayLocation = getDisplayLocation(creator);

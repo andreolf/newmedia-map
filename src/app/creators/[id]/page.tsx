@@ -206,7 +206,7 @@ export default async function CreatorProfilePage({
                 {creator.artifacts.find((a) => a.type === "youtube") && (
                   <ArtifactPreview artifact={creator.artifacts.find((a) => a.type === "youtube")!} />
                 )}
-                
+
                 {/* Other artifacts */}
                 <div className="grid gap-3 sm:grid-cols-2">
                   {creator.artifacts

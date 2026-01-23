@@ -3,14 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
-import { Radio, Users, Heart, Plus, Globe, MapPin, Menu, X, Calendar, Building2 } from "lucide-react";
+import { Radio, Users, Heart, Plus, Globe, MapPin, Menu, X, Calendar, Building2, ShieldCheck } from "lucide-react";
 import { useBookmarksContext } from "./BookmarksProvider";
 import { AuthButton } from "./AuthButton";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
+  const { data: session } = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isCreatorsPage = pathname === "/creators" || pathname.startsWith("/creators/");
   const isChaptersPage = pathname === "/chapters" || pathname.startsWith("/chapters/");
@@ -19,7 +21,11 @@ export function Header() {
   const isCompaniesPage = pathname === "/companies";
   const isBookmarksPage = pathname === "/bookmarks";
   const isSubmitPage = pathname === "/submit";
+  const isAdminPage = pathname.startsWith("/admin");
   const { bookmarkCount, isLoaded } = useBookmarksContext();
+  
+  const userRole = session?.user?.role;
+  const isAdmin = userRole === "admin" || userRole === "curator";
 
   const navItems = [
     { href: "/creators", label: "Creators", icon: Users, active: isCreatorsPage },
@@ -81,6 +87,21 @@ export function Header() {
             
             <div className="border-l border-[--border] h-6 mx-3" />
             
+            {isAdmin && (
+              <Link
+                href="/admin/badges"
+                className={cn(
+                  "flex items-center justify-center w-9 h-9 rounded-lg transition-all",
+                  isAdminPage
+                    ? "bg-[#00ff88]/20 text-[#00ff88]"
+                    : "text-[--muted-foreground] hover:text-[--foreground] hover:bg-[--card]"
+                )}
+                title="Manage Badges"
+              >
+                <ShieldCheck size={18} />
+              </Link>
+            )}
+            
             <ThemeToggle />
             <AuthButton variant="compact" />
           </nav>
@@ -128,6 +149,22 @@ export function Header() {
                   )}
                 </Link>
               ))}
+              
+              {isAdmin && (
+                <Link
+                  href="/admin/badges"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all",
+                    isAdminPage
+                      ? "bg-[--card] text-[#00ff88] border border-[#00ff88]/30"
+                      : "text-[--muted-foreground] hover:text-[--foreground] hover:bg-[--card]"
+                  )}
+                >
+                  <ShieldCheck size={18} />
+                  <span>Manage Badges</span>
+                </Link>
+              )}
               
               <div className="border-t border-[--border] my-3" />
               
