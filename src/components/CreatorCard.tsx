@@ -6,6 +6,7 @@ import { Avatar } from "./Avatar";
 import { TagChip } from "./TagChip";
 import { ArtifactIconRow } from "./ArtifactIconRow";
 import { BookmarkButton } from "./BookmarkButton";
+import { BadgeIcons, BadgeRow } from "./Badge";
 import { getSurfaceReason, formatSurfaceReason, getDisplayLocation } from "@/lib/chapters";
 import { MapPin, Sparkles, Users, MessageSquare } from "lucide-react";
 
@@ -66,6 +67,9 @@ export function CreatorCard({
                   <h3 className="font-semibold text-[--foreground] group-hover:text-[#00ff88] transition-colors">
                     {creator.name}
                   </h3>
+                  {creator.badges && creator.badges.length > 0 && (
+                    <BadgeIcons badges={creator.badges} />
+                  )}
                   <BookmarkButton creatorId={creator.id} size="sm" />
                 </div>
                 <div className="flex items-center gap-2 text-sm text-[--muted-foreground] mt-0.5">
@@ -140,11 +144,23 @@ export function CreatorCard({
 
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between">
-              <h3 className="font-semibold text-[--foreground] group-hover:text-[#00ff88] transition-colors">
-                {creator.name}
-              </h3>
+              <div className="flex items-center gap-2">
+                <h3 className="font-semibold text-[--foreground] group-hover:text-[#00ff88] transition-colors">
+                  {creator.name}
+                </h3>
+                {creator.badges && creator.badges.length > 0 && (
+                  <BadgeIcons badges={creator.badges} />
+                )}
+              </div>
               <BookmarkButton creatorId={creator.id} size="sm" />
             </div>
+
+            {/* Badges row */}
+            {creator.badges && creator.badges.length > 0 && (
+              <div className="mt-1.5">
+                <BadgeRow badges={creator.badges} maxShow={2} size="sm" />
+              </div>
+            )}
 
             {displayLocation && (
               <div className="flex items-center gap-1 text-[--muted-foreground] text-sm mt-0.5">

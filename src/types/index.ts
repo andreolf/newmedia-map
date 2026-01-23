@@ -1,6 +1,64 @@
 // Content categories (anti-shill: no generic promo)
 export type CreatorCategory = "Build" | "Explain" | "Apply" | "Document" | "Critique";
 
+// Curator-assigned badges (quality signals)
+export type BadgeType =
+  | "chapter_pick" // Chapter lead vouches
+  | "rising_star" // Emerging talent
+  | "og_contributor" // Long-term community contributor
+  | "event_speaker" // Spoke at an event
+  | "verified_builder" // Shipped real products
+  | "mentor"; // Active mentor
+
+export const BADGE_CONFIG: Record<
+  BadgeType,
+  { label: string; emoji: string; color: string; description: string }
+> = {
+  chapter_pick: {
+    label: "Chapter Pick",
+    emoji: "⭐",
+    color: "#f59e0b",
+    description: "Vouched by chapter curator",
+  },
+  rising_star: {
+    label: "Rising Star",
+    emoji: "🚀",
+    color: "#8b5cf6",
+    description: "Emerging talent to watch",
+  },
+  og_contributor: {
+    label: "OG",
+    emoji: "💎",
+    color: "#06b6d4",
+    description: "Long-term community contributor",
+  },
+  event_speaker: {
+    label: "Speaker",
+    emoji: "🎤",
+    color: "#ec4899",
+    description: "Event speaker",
+  },
+  verified_builder: {
+    label: "Builder",
+    emoji: "🛠️",
+    color: "#10b981",
+    description: "Verified shipped products",
+  },
+  mentor: {
+    label: "Mentor",
+    emoji: "🧭",
+    color: "#3b82f6",
+    description: "Active mentor",
+  },
+};
+
+export interface Badge {
+  type: BadgeType;
+  awarded_by?: string; // curator user_id or "admin"
+  awarded_at: string;
+  context?: string; // Optional note, e.g. "ETH Denver 2026 speaker"
+}
+
 export const CATEGORY_DESCRIPTIONS: Record<CreatorCategory, string> = {
   Build: "Creating tools, protocols, or infrastructure",
   Explain: "Breaking down complex topics for others",
@@ -157,6 +215,9 @@ export interface Creator {
 
   // Events
   attending_event_ids?: string[];
+
+  // Badges (curator-assigned quality signals)
+  badges?: Badge[];
 
   // Timestamps
   created_at?: string;

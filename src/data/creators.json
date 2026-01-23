@@ -61,6 +61,10 @@
     "attending_event_ids": [
       "eth-denver-2026"
     ],
+    "badges": [
+      { "type": "chapter_pick", "awarded_at": "2026-01-10T00:00:00Z", "context": "Best Spanish-language wallet education" },
+      { "type": "rising_star", "awarded_at": "2026-01-05T00:00:00Z" }
+    ],
     "created_at": "2025-12-15T00:00:00Z"
   },
   {
@@ -131,6 +135,9 @@
     ],
     "attending_event_ids": [
       "web3-lagos-builder-night"
+    ],
+    "badges": [
+      { "type": "mentor", "awarded_at": "2026-01-08T00:00:00Z", "context": "ZK mentorship program lead" }
     ],
     "created_at": "2025-12-20T00:00:00Z"
   },
@@ -259,6 +266,10 @@
     "categories": [
       "Explain",
       "Critique"
+    ],
+    "badges": [
+      { "type": "event_speaker", "awarded_at": "2025-11-01T00:00:00Z", "context": "ETH Berlin 2025 keynote" },
+      { "type": "og_contributor", "awarded_at": "2025-09-01T00:00:00Z" }
     ],
     "created_at": "2025-10-15T00:00:00Z"
   },
@@ -580,6 +591,11 @@
     "attending_event_ids": [
       "zk-workshop-lisbon",
       "eth-denver-2026"
+    ],
+    "badges": [
+      { "type": "chapter_pick", "awarded_at": "2025-12-01T00:00:00Z", "context": "Best ZK education in Europe" },
+      { "type": "verified_builder", "awarded_at": "2025-10-01T00:00:00Z", "context": "zk.school + circom-playground" },
+      { "type": "mentor", "awarded_at": "2025-11-01T00:00:00Z" }
     ],
     "created_at": "2025-08-15T00:00:00Z"
   },
@@ -1136,6 +1152,11 @@
     "categories": [
       "Build",
       "Explain"
+    ],
+    "badges": [
+      { "type": "verified_builder", "awarded_at": "2025-06-01T00:00:00Z", "context": "ERC-4337 core contributor" },
+      { "type": "event_speaker", "awarded_at": "2025-03-01T00:00:00Z", "context": "ETH Denver 2025 workshop" },
+      { "type": "og_contributor", "awarded_at": "2025-04-01T00:00:00Z" }
     ],
     "created_at": "2025-05-01T00:00:00Z"
   },

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Creator, CreatorIntent } from "@/types";
 import { Avatar } from "./Avatar";
 import { TagChip } from "./TagChip";
+import { BadgeIcons } from "./Badge";
 import { MapPin, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookmarkButton } from "./BookmarkButton";
@@ -56,6 +57,9 @@ export function CreatorListItem({ creator, isSelected = false }: CreatorListItem
                 <h3 className="font-semibold text-[--foreground] group-hover:text-[#00ff88] transition-colors truncate">
                   {creator.name}
                 </h3>
+                {creator.badges && creator.badges.length > 0 && (
+                  <BadgeIcons badges={creator.badges} />
+                )}
                 <BookmarkButton creatorId={creator.id} size="sm" />
                 <QuickShareButton creator={creator} size="sm" />
               </div>

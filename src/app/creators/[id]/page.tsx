@@ -10,6 +10,7 @@ import { ArtifactPreview } from "@/components/ArtifactPreview";
 import { RelatedCreators } from "@/components/RelatedCreators";
 import { ShareableCard } from "@/components/ShareableCard";
 import { DiscoveryBadge } from "@/components/DiscoveryBadge";
+import { BadgeRow } from "@/components/Badge";
 import creatorsData from "@/data/creators.json";
 import { Creator, Artifact } from "@/types";
 import { contentFormatLabels, trajectoryLabels } from "@/lib/constants";
@@ -137,6 +138,13 @@ export default async function CreatorProfilePage({
                     </h1>
                     <BookmarkSection creatorId={creator.id} />
                   </div>
+
+                  {/* Curator Badges */}
+                  {creator.badges && creator.badges.length > 0 && (
+                    <div className="mt-2">
+                      <BadgeRow badges={creator.badges} maxShow={5} size="md" />
+                    </div>
+                  )}
 
                   <div className="flex items-center gap-1 text-stone-500 dark:text-stone-400 mt-2">
                     <MapPin size={16} />
